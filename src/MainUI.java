@@ -11,27 +11,35 @@ import java.awt.event.ActionListener;
 public class MainUI extends JPanel {
     private JPanel mainPanel;
     private JButton createSiteButton, editSiteButton, restoreSiteButton, exitButton;
+    private JTabbedPane tabbedPanel;
+    private JPanel createSitePanel;
+    private JPanel editSitePanel;
+    private JPanel restoreSitePanel;
+    private JLabel siteNameLabel;
+    private JTextField nameOfCreateSite;
+    private JLabel tswVersionCreate;
+    private JButton chooseIMSVersionButton;
+    private JLabel imsVersionCreate;
+    private JButton chooseGCCVersionButton;
+    private JButton chooseTSWVersionButton;
+    private JLabel gccVersionCreate;
+    private JCheckBox copySosCheckBoxCreate;
+    private JButton createTheSiteButton;
+    private JLabel nameOfEditSite;
+    private JButton siteToEditButton;
+    private JButton editGccVersionButton;
+    private JButton editImsVersionButton;
+    private JButton editTswVersionButton;
+    private JLabel gccVersionEdit;
+    private JLabel imsVersionEdit;
+    private JLabel tswVersionEdit;
+    private JCheckBox copySosCheckBoxEdit;
+    private JButton saveChangesButton;
+    private JButton siteToRestoreButton;
+    private JLabel siteToRestoreChosen;
 
     public MainUI() {
 
-        createSiteButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //TODO: open create site panel
-            }
-        });
-        editSiteButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //TODO: open select site panel and then create site panel with existing info loaded
-            }
-        });
-        restoreSiteButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //TODO: open select site panel, run correct version of TSW, then copy correct sos.ini file
-            }
-        });
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -61,4 +69,5 @@ public class MainUI extends JPanel {
             }
         });
     }
+
 }
