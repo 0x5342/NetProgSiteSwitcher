@@ -10,14 +10,14 @@
     <children>
       <tabbedpane id="5af07" binding="tabbedPanel">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="500" height="200"/>
+          <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="750" height="200"/>
           </grid>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
-          <grid id="52903" binding="createSitePanel" layout-manager="GridLayoutManager" row-count="6" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="52903" binding="createSiteTab" layout-manager="GridLayoutManager" row-count="6" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="10" right="10"/>
             <constraints>
               <tabbedpane title="Create a new site"/>
@@ -31,7 +31,7 @@
                 </constraints>
                 <properties>
                   <labelFor value="bcdea"/>
-                  <text value="Name of site:"/>
+                  <text value="Name of new site:"/>
                 </properties>
               </component>
               <component id="bcdea" class="javax.swing.JTextField" binding="nameOfCreateSite">
@@ -50,15 +50,16 @@
                 </constraints>
                 <properties>
                   <text value="Choose TSW version"/>
-                  <toolTipText value="Leave as NONE if only GCC or IMS"/>
+                  <toolTipText value="Leave BLANK if only GCC or IMS"/>
                 </properties>
               </component>
-              <component id="fc811" class="javax.swing.JLabel" binding="tswVersionCreate">
+              <component id="51b16" class="javax.swing.JTextField" binding="tswVersionCreate">
                 <constraints>
-                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="None Chosen"/>
+                  <editable value="false"/>
+                  <text value=""/>
                 </properties>
               </component>
               <component id="bcc5a" class="javax.swing.JButton" binding="chooseIMSVersionButton">
@@ -67,15 +68,16 @@
                 </constraints>
                 <properties>
                   <text value="Choose IMS version"/>
-                  <toolTipText value="Leave as NONE if only GCC or TSW"/>
+                  <toolTipText value="Leave BLANK if only GCC or TSW"/>
                 </properties>
               </component>
-              <component id="e4464" class="javax.swing.JLabel" binding="imsVersionCreate">
+              <component id="c2238" class="javax.swing.JTextField" binding="imsVersionCreate">
                 <constraints>
-                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="None Chosen"/>
+                  <editable value="false"/>
+                  <text value=""/>
                 </properties>
               </component>
               <component id="b7604" class="javax.swing.JButton" binding="chooseGCCVersionButton">
@@ -84,15 +86,16 @@
                 </constraints>
                 <properties>
                   <text value="Choose GCC version"/>
-                  <toolTipText value="Leave as NONE if only IMS or TSW"/>
+                  <toolTipText value="Leave BLANK if only IMS or TSW"/>
                 </properties>
               </component>
-              <component id="c1143" class="javax.swing.JLabel" binding="gccVersionCreate">
+              <component id="947e7" class="javax.swing.JTextField" binding="gccVersionCreate">
                 <constraints>
-                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="None Chosen"/>
+                  <editable value="false"/>
+                  <text value=""/>
                 </properties>
               </component>
               <component id="f3412" class="javax.swing.JCheckBox" binding="copySosCheckBoxCreate">
@@ -115,7 +118,7 @@
               </component>
             </children>
           </grid>
-          <grid id="42b29" binding="editSitePanel" layout-manager="GridLayoutManager" row-count="6" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="42b29" binding="editSiteTab" layout-manager="GridLayoutManager" row-count="6" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="10" right="10"/>
             <constraints>
               <tabbedpane title="Edit an existing site"/>
@@ -137,7 +140,7 @@
                 </constraints>
                 <properties>
                   <text value="Change TSW version"/>
-                  <toolTipText value="Leave as N/A if only GCC or IMS"/>
+                  <toolTipText value="Leave BLANK if only GCC or IMS"/>
                 </properties>
               </component>
               <component id="54c9a" class="javax.swing.JButton" binding="editImsVersionButton">
@@ -146,7 +149,7 @@
                 </constraints>
                 <properties>
                   <text value="Change IMS version"/>
-                  <toolTipText value="Leave as N/A if only GCC or TSW"/>
+                  <toolTipText value="Leave BLANK if only GCC or TSW"/>
                 </properties>
               </component>
               <component id="90543" class="javax.swing.JButton" binding="editGccVersionButton">
@@ -155,39 +158,43 @@
                 </constraints>
                 <properties>
                   <text value="Change GCC version"/>
-                  <toolTipText value="Leave as N/A if only IMS or TSW"/>
+                  <toolTipText value="Leave BLANK if only IMS or TSW"/>
                 </properties>
               </component>
-              <component id="979be" class="javax.swing.JLabel" binding="gccVersionEdit">
+              <component id="1d70c" class="javax.swing.JTextField" binding="gccVersionEdit">
                 <constraints>
-                  <grid row="1" column="3" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="3" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="N/A"/>
+                  <editable value="false"/>
+                  <text value=""/>
                 </properties>
               </component>
-              <component id="9f3d6" class="javax.swing.JLabel" binding="nameOfEditSite">
+              <component id="e0fc1" class="javax.swing.JTextField" binding="nameOfEditSite">
                 <constraints>
-                  <grid row="0" column="3" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="3" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="None chosen"/>
+                  <editable value="false"/>
+                  <text value=""/>
                 </properties>
               </component>
-              <component id="5ea46" class="javax.swing.JLabel" binding="imsVersionEdit">
+              <component id="47936" class="javax.swing.JTextField" binding="imsVersionEdit">
                 <constraints>
-                  <grid row="2" column="3" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="2" column="3" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="N/A"/>
+                  <editable value="false"/>
+                  <text value=""/>
                 </properties>
               </component>
-              <component id="d6636" class="javax.swing.JLabel" binding="tswVersionEdit">
+              <component id="588e9" class="javax.swing.JTextField" binding="tswVersionEdit">
                 <constraints>
-                  <grid row="3" column="3" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="3" column="3" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="N/A"/>
+                  <editable value="false"/>
+                  <text value=""/>
                 </properties>
               </component>
               <component id="4b490" class="javax.swing.JCheckBox" binding="copySosCheckBoxEdit">
@@ -209,7 +216,7 @@
               </component>
             </children>
           </grid>
-          <grid id="3ca7c" binding="restoreSitePanel" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="3ca7c" binding="restoreSiteTab" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="10" right="10"/>
             <constraints>
               <tabbedpane title="Restore an existing site"/>
@@ -230,14 +237,15 @@
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                 </constraints>
               </vspacer>
-              <component id="fd64f" class="javax.swing.JLabel" binding="siteToRestoreChosen">
+              <component id="5768b" class="javax.swing.JTextField" binding="siteToRestoreChosen">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
                 <properties>
-                  <text value="None chosen"/>
+                  <editable value="false"/>
+                  <text value=""/>
                 </properties>
               </component>
               <component id="da996" class="javax.swing.JButton" binding="restoreSiteButton">
@@ -246,6 +254,100 @@
                 </constraints>
                 <properties>
                   <text value="Restore selected site"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="c4468" binding="directoriesTab" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="10" bottom="10" right="10"/>
+            <constraints>
+              <tabbedpane title="Directories"/>
+            </constraints>
+            <properties/>
+            <border type="bevel-raised"/>
+            <children>
+              <component id="6915d" class="javax.swing.JButton" binding="changeSiteDirectoryButton" default-binding="true">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Change Site Directory"/>
+                </properties>
+              </component>
+              <component id="9061b" class="javax.swing.JTextField" binding="siteDirectory">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                </properties>
+              </component>
+              <component id="ebe26" class="javax.swing.JButton" binding="changeGCCRevsDirectoryButton" default-binding="true">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Change GCC Revs Directory"/>
+                </properties>
+              </component>
+              <component id="4b10d" class="javax.swing.JTextField" binding="gccRevsDirectory">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <text value="C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/GCC/GCC REVS"/>
+                </properties>
+              </component>
+              <component id="cdd12" class="javax.swing.JButton" binding="changeIMSRevsDirectoryButton" default-binding="true">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Change IMS Revs Directory"/>
+                </properties>
+              </component>
+              <component id="3d990" class="javax.swing.JTextField" binding="imsRevsDirectory">
+                <constraints>
+                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <text value="C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/IMS/IMS REVS"/>
+                </properties>
+              </component>
+              <component id="34122" class="javax.swing.JButton" binding="changeTSWRevsDirectoryButton" default-binding="true">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Change TSW Revs Directory"/>
+                </properties>
+              </component>
+              <component id="c0e59" class="javax.swing.JTextField" binding="tswRevsDirectory">
+                <constraints>
+                  <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <text value="C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/Truesite/TSW/GCCREVS"/>
+                </properties>
+              </component>
+              <component id="57cf" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="16" style="1"/>
+                  <text value="These should not have to be modified"/>
                 </properties>
               </component>
             </children>
