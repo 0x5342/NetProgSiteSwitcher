@@ -10,7 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * Created by sbrown on 5/30/2016.
+ * Created by Steven Brown on 5/30/2016.
  * This program will allow the user to save network setups for different sites
  * by selecting which TSW programmer needs to be loaded and saving a copy of
  * the sos.ini file to restore programmers directories that the site needs.
@@ -60,12 +60,14 @@ public class MainUI extends JPanel {
 
         fc = new JFileChooser();
 
+        //Master exit button to quit the application
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
         });
+        //Create site tab: choose the GCC version of software
         chooseGCCVersionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -77,6 +79,7 @@ public class MainUI extends JPanel {
                 }
             }
         });
+        //Create site tab: choose the IMS version of software
         chooseIMSVersionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -88,6 +91,7 @@ public class MainUI extends JPanel {
                 }
             }
         });
+        //Create site tab: choose the TSW version of software
         chooseTSWVersionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -99,6 +103,7 @@ public class MainUI extends JPanel {
                 }
             }
         });
+        //Create site tab: create the new site with the selected options
         createTheSiteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -126,6 +131,56 @@ public class MainUI extends JPanel {
                         //TODO: positive feedback that the site was created
                     }
                 }
+            }
+        });
+        //Edit site tab: choose the site to edit
+        siteToEditButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO: start file chooser in the site directory
+                //TODO: only allow directories to be selected since each site is a directory
+            }
+        });
+        //Edit site tab: choose the GCC version of software
+        editGccVersionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO: make this and the create tab launch a single method with the destination variable passed in
+            }
+        });
+        //Edit site tab: choose the IMS version of software
+        editImsVersionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO: make this and the create tab launch a single method with the destination variable passed in
+            }
+        });
+        //Edit site tab: choose the TSW version of software
+        editTswVersionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO: make this and the create tab launch a single method with the destination variable passed in
+            }
+        });
+        //Edit site tab: update the site with the changed information
+        saveChangesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO: can this and the create site button share a method?
+            }
+        });
+        //Restore site tab: choose the site to restore
+        siteToRestoreButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO: can this and the edit tab share a method?
+            }
+        });
+        //Restore site tab: run each selected GCC Rev file and then copy the sos.ini back into C:\Windows
+        restoreSiteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO: add code
             }
         });
     }
