@@ -8,7 +8,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <tabbedpane id="5af07" binding="tabbedPanel">
+      <tabbedpane id="5af07" binding="tabbedPane">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="750" height="200"/>
@@ -25,7 +25,7 @@
             <properties/>
             <border type="bevel-raised"/>
             <children>
-              <component id="4aea6" class="javax.swing.JLabel" binding="siteNameLabel">
+              <component id="4aea6" class="javax.swing.JLabel">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -300,7 +300,7 @@
                 </constraints>
                 <properties>
                   <editable value="false"/>
-                  <text value="C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/GCC/GCC REVS"/>
+                  <text value=""/>
                 </properties>
               </component>
               <component id="cdd12" class="javax.swing.JButton" binding="changeIMSRevsDirectoryButton" default-binding="true">
@@ -319,7 +319,7 @@
                 </constraints>
                 <properties>
                   <editable value="false"/>
-                  <text value="C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/IMS/IMS REVS"/>
+                  <text value=""/>
                 </properties>
               </component>
               <component id="34122" class="javax.swing.JButton" binding="changeTSWRevsDirectoryButton" default-binding="true">
@@ -338,7 +338,7 @@
                 </constraints>
                 <properties>
                   <editable value="false"/>
-                  <text value="C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/Truesite/TSW/GCCREVS"/>
+                  <text value=""/>
                 </properties>
               </component>
               <component id="57cf" class="javax.swing.JLabel">

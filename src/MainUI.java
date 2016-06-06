@@ -1,13 +1,13 @@
-import sun.applet.Main;
+import javafx.stage.FileChooser;
+import org.xml.sax.SAXException;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.xml.parsers.ParserConfigurationException;
+import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 /**
  * Created by Steven Brown on 5/30/2016.
@@ -18,11 +18,11 @@ import java.nio.file.Paths;
 public class MainUI extends JPanel {
     private JPanel mainPanel;
     private JButton createSiteButton, editSiteButton, restoreSiteButton, exitButton;
-    private JTabbedPane tabbedPanel;
+    private JTabbedPane tabbedPane;
     private JPanel createSiteTab;
     private JPanel editSiteTab;
     private JPanel restoreSiteTab;
-    private JLabel siteNameLabel;
+    private JPanel directoriesTab;
     private JTextField nameOfCreateSite;
     private JButton chooseGCCVersionButton;
     private JTextField gccVersionCreate;
@@ -44,7 +44,6 @@ public class MainUI extends JPanel {
     private JButton saveChangesButton;
     private JButton siteToRestoreButton;
     private JTextField siteToRestoreChosen;
-    private JPanel directoriesTab;
     private JButton changeSiteDirectoryButton;
     private JTextField siteDirectory;
     private JButton changeGCCRevsDirectoryButton;
@@ -54,11 +53,7 @@ public class MainUI extends JPanel {
     private JButton changeTSWRevsDirectoryButton;
     private JTextField tswRevsDirectory;
 
-    JFileChooser fc;
-
     public MainUI() {
-
-        fc = new JFileChooser();
 
         //Master exit button to quit the application
         exitButton.addActionListener(new ActionListener() {
@@ -72,6 +67,8 @@ public class MainUI extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //TODO: make this start in "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/GCC/GCC REVS"
+                //TODO: do you need to filter by the shortcut extension or bat extension?
+                JFileChooser fc = new JFileChooser();
                 int returnValue = fc.showOpenDialog(MainUI.this);
                 if(returnValue==JFileChooser.APPROVE_OPTION){
                     File file = fc.getSelectedFile();
@@ -84,6 +81,7 @@ public class MainUI extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //TODO: make this start in "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/IMS/IMS REVS"
+                JFileChooser fc = new JFileChooser();
                 int returnValue = fc.showOpenDialog(MainUI.this);
                 if(returnValue==JFileChooser.APPROVE_OPTION){
                     File file = fc.getSelectedFile();
@@ -96,6 +94,7 @@ public class MainUI extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //TODO: make this start in "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/Truesite/TSW/GCCREVS"
+                JFileChooser fc = new JFileChooser();
                 int returnValue = fc.showOpenDialog(MainUI.this);
                 if(returnValue==JFileChooser.APPROVE_OPTION){
                     File file = fc.getSelectedFile();
@@ -183,28 +182,59 @@ public class MainUI extends JPanel {
                 //TODO: add code
             }
         });
+        //Directories tab: change the directory where the sites are stored
+        changeSiteDirectoryButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO: add code
+            }
+        });
+        //Directories tab: change where the GCC Revs directory is located
+        changeGCCRevsDirectoryButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO: add code
+            }
+        });
+        //Directories tab: change where the IMS Revs directory is located
+        changeIMSRevsDirectoryButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO: add code
+            }
+        });
+        //Directories tab: change where the TSW Revs directory is located
+        changeTSWRevsDirectoryButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO: add code
+            }
+        });
+        //Read the directories from the preference file and populate the textFields when the Directories tab is selected
+        tabbedPane.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                if(tabbedPane.getSelectedComponent()==directoriesTab){
+                    PopulatePreferences populatePreferences = new PopulatePreferences(siteDirectory,gccRevsDirectory,
+                            imsRevsDirectory,tswRevsDirectory);
+                    populatePreferences.execute();
+                }
+            }
+        });
     }
 
     /**
      * Create the main GUI and show it.
      */
-    private static void createAndShowMainGUI(){
-
+    private void createAndShowMainGUI(){
         JFrame frame = new JFrame("Network Programmer Site Saver");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         frame.add(new MainUI().mainPanel);
-
         frame.pack();
         frame.setVisible(true);
     }
 
-    public static void main(String[] args){
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowMainGUI();
-            }
-        });
+    void mainScreen(){
+        createAndShowMainGUI();
     }
 
 }
