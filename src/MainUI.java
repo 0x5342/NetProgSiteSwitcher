@@ -1,13 +1,10 @@
-import javafx.stage.FileChooser;
-import org.xml.sax.SAXException;
-
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import javax.xml.parsers.ParserConfigurationException;
-import java.awt.event.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by Steven Brown on 5/30/2016.
@@ -53,6 +50,9 @@ public class MainUI extends JPanel {
     private JButton changeTSWRevsDirectoryButton;
     private JTextField tswRevsDirectory;
 
+    private static char FILE = 'F';
+    private static char DIRECTORY = 'D';
+
     public MainUI() {
 
         //Master exit button to quit the application
@@ -68,10 +68,9 @@ public class MainUI extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 //TODO: make this start in "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/GCC/GCC REVS"
                 //TODO: do you need to filter by the shortcut extension or bat extension?
-                JFileChooser fc = new JFileChooser();
-                int returnValue = fc.showOpenDialog(MainUI.this);
-                if(returnValue==JFileChooser.APPROVE_OPTION){
-                    File file = fc.getSelectedFile();
+                NpssFileChooser nFC = new NpssFileChooser();
+                File file = nFC.NpssFileChooser(MainUI.this,"C:/",FILE); //replace C:/ with directory variable
+                if (file!=null) {
                     gccVersionCreate.setText(file.getName());
                 }
             }
@@ -81,10 +80,10 @@ public class MainUI extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //TODO: make this start in "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/IMS/IMS REVS"
-                JFileChooser fc = new JFileChooser();
-                int returnValue = fc.showOpenDialog(MainUI.this);
-                if(returnValue==JFileChooser.APPROVE_OPTION){
-                    File file = fc.getSelectedFile();
+                //TODO: do you need to filter by the shortcut extension or bat extension?
+                NpssFileChooser nFC = new NpssFileChooser();
+                File file = nFC.NpssFileChooser(MainUI.this,"C:/",FILE); //replace C:/ with directory variable
+                if (file!=null) {
                     imsVersionCreate.setText(file.getName());
                 }
             }
@@ -94,10 +93,10 @@ public class MainUI extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //TODO: make this start in "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/Truesite/TSW/GCCREVS"
-                JFileChooser fc = new JFileChooser();
-                int returnValue = fc.showOpenDialog(MainUI.this);
-                if(returnValue==JFileChooser.APPROVE_OPTION){
-                    File file = fc.getSelectedFile();
+                //TODO: do you need to filter by the shortcut extension or bat extension?
+                NpssFileChooser nFC = new NpssFileChooser();
+                File file = nFC.NpssFileChooser(MainUI.this,"C:/",FILE); //replace C:/ with directory variable
+                if(file!=null) {
                     tswVersionCreate.setText(file.getName());
                 }
             }
@@ -138,6 +137,11 @@ public class MainUI extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 //TODO: start file chooser in the site directory
                 //TODO: only allow directories to be selected since each site is a directory
+                NpssFileChooser nFC = new NpssFileChooser();
+                File file = nFC.NpssFileChooser(MainUI.this,"C:/",DIRECTORY); //replace C:/ with directory variable
+                if(file!=null) {
+                    nameOfEditSite.setText(file.getName());
+                }
             }
         });
         //Edit site tab: choose the GCC version of software
@@ -145,6 +149,11 @@ public class MainUI extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //TODO: make this and the create tab launch a single method with the destination variable passed in
+                NpssFileChooser nFC = new NpssFileChooser();
+                File file = nFC.NpssFileChooser(MainUI.this,"C:/",FILE); //replace C:/ with directory variable
+                if(file!=null) {
+                    gccVersionEdit.setText(file.getName());
+                }
             }
         });
         //Edit site tab: choose the IMS version of software
@@ -152,6 +161,11 @@ public class MainUI extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //TODO: make this and the create tab launch a single method with the destination variable passed in
+                NpssFileChooser nFC = new NpssFileChooser();
+                File file = nFC.NpssFileChooser(MainUI.this,"C:/",FILE); //replace C:/ with directory variable
+                if(file!=null) {
+                    imsVersionEdit.setText(file.getName());
+                }
             }
         });
         //Edit site tab: choose the TSW version of software
@@ -159,6 +173,11 @@ public class MainUI extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //TODO: make this and the create tab launch a single method with the destination variable passed in
+                NpssFileChooser nFC = new NpssFileChooser();
+                File file = nFC.NpssFileChooser(MainUI.this,"C:/",FILE); //replace C:/ with directory variable
+                if(file!=null) {
+                    tswVersionEdit.setText(file.getName());
+                }
             }
         });
         //Edit site tab: update the site with the changed information
@@ -173,9 +192,14 @@ public class MainUI extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //TODO: can this and the edit tab share a method?
+                NpssFileChooser nFC = new NpssFileChooser();
+                File file = nFC.NpssFileChooser(MainUI.this,"C:/",DIRECTORY); //replace C:/ with directory variable
+                if(file!=null) {
+                    siteToRestoreChosen.setText(file.getName());
+                }
             }
         });
-        //Restore site tab: run each selected GCC Rev file and then copy the sos.ini back into C:\Windows
+        //Restore site tab: run each selected Rev file and then copy the sos.ini back into C:\Windows
         restoreSiteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -186,34 +210,69 @@ public class MainUI extends JPanel {
         changeSiteDirectoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: add code
+                NpssFileChooser nFC = new NpssFileChooser();
+                File file = nFC.NpssFileChooser(MainUI.this,"C:/",DIRECTORY); //replace C:/ with directory variable
+                if(file!=null) {
+                    siteDirectory.setText(file.getName());
+                    //TODO: update the preferences file
+                }
             }
         });
         //Directories tab: change where the GCC Revs directory is located
         changeGCCRevsDirectoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: add code
+                NpssFileChooser nFC = new NpssFileChooser();
+                File file = nFC.NpssFileChooser(MainUI.this,"C:/",DIRECTORY); //replace C:/ with directory variable
+                if(file!=null) {
+                    siteDirectory.setText(file.getName());
+                    //TODO: update the preferences file
+                }
             }
         });
         //Directories tab: change where the IMS Revs directory is located
         changeIMSRevsDirectoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: add code
+                NpssFileChooser nFC = new NpssFileChooser();
+                File file = nFC.NpssFileChooser(MainUI.this,"C:/",DIRECTORY); //replace C:/ with directory variable
+                if(file!=null) {
+                    siteDirectory.setText(file.getName());
+                    //TODO: update the preferences file
+                }
             }
         });
         //Directories tab: change where the TSW Revs directory is located
         changeTSWRevsDirectoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: add code
+                NpssFileChooser nFC = new NpssFileChooser();
+                File file = nFC.NpssFileChooser(MainUI.this,"C:/",DIRECTORY); //replace C:/ with directory variable
+                if(file!=null) {
+                    siteDirectory.setText(file.getName());
+                    //TODO: update the preferences file
+                }
             }
         });
-        //Read the directories from the preference file and populate the textFields when the Directories tab is selected
+        //When changing tabs, either clear the entry fields or populate fields from the preferences file
         tabbedPane.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
-                if(tabbedPane.getSelectedComponent()==directoriesTab){
+                Component tabSelected = tabbedPane.getSelectedComponent();
+                if(tabSelected==createSiteTab){  //when the tab is selected clear the entry fields
+                    nameOfCreateSite.setText(null);
+                    gccVersionCreate.setText(null);
+                    imsVersionCreate.setText(null);
+                    tswVersionCreate.setText(null);
+                    copySosCheckBoxCreate.isSelected();
+                }else if(tabSelected==editSiteTab){  //when the tab is selected clear the entry fields
+                    nameOfEditSite.setText(null);
+                    gccVersionEdit.setText(null);
+                    imsVersionEdit.setText(null);
+                    tswVersionEdit.setText(null);
+                    copySosCheckBoxEdit.isSelected();
+                }else if(tabSelected==restoreSiteTab){  //when the tab is selected clear the entry fields
+                    siteToRestoreChosen.setText(null);
+                }else if(tabSelected==directoriesTab){  //when the tab is selected populate fields from preferences file
                     PopulatePreferences populatePreferences = new PopulatePreferences(siteDirectory,gccRevsDirectory,
                             imsRevsDirectory,tswRevsDirectory);
                     populatePreferences.execute();
