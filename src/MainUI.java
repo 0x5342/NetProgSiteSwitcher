@@ -263,13 +263,13 @@ public class MainUI extends JPanel {
                     gccVersionCreate.setText(null);
                     imsVersionCreate.setText(null);
                     tswVersionCreate.setText(null);
-                    copySosCheckBoxCreate.isSelected();
+                    copySosCheckBoxCreate.setSelected(true);
                 }else if(tabSelected==editSiteTab){  //when the tab is selected clear the entry fields
                     nameOfEditSite.setText(null);
                     gccVersionEdit.setText(null);
                     imsVersionEdit.setText(null);
                     tswVersionEdit.setText(null);
-                    copySosCheckBoxEdit.isSelected();
+                    copySosCheckBoxEdit.setSelected(true);
                 }else if(tabSelected==restoreSiteTab){  //when the tab is selected clear the entry fields
                     siteToRestoreChosen.setText(null);
                 }else if(tabSelected==directoriesTab){  //when the tab is selected populate fields from preferences file
