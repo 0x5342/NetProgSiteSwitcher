@@ -58,6 +58,7 @@ public class PopulatePreferences extends SwingWorker<String[],Object>{
                 switch (id){
                     case "site":
                         directories[SITE]=location;
+                        System.out.println(id + " " + location);
                         break;
                     case "gcc":
                         directories[GCC]=location;

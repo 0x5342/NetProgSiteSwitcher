@@ -5,6 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * Created by Steven Brown on 5/30/2016.
@@ -66,10 +69,11 @@ public class MainUI extends JPanel {
         chooseGCCVersionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: make this start in "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/GCC/GCC REVS"
+                //Default should be "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/GCC/GCC REVS"
+                String directory = verifyPath(gccRevsDirectory);
                 //TODO: do you need to filter by the shortcut extension or bat extension?
                 NpssFileChooser nFC = new NpssFileChooser();
-                File file = nFC.NpssFileChooser(MainUI.this,"C:/",FILE); //replace C:/ with directory variable
+                File file = nFC.NpssFileChooser(MainUI.this,directory,FILE);
                 if (file!=null) {
                     gccVersionCreate.setText(file.getName());
                 }
@@ -79,10 +83,11 @@ public class MainUI extends JPanel {
         chooseIMSVersionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: make this start in "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/IMS/IMS REVS"
+                //Default should be "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/IMS/IMS REVS"
+                String directory = verifyPath(imsRevsDirectory);
                 //TODO: do you need to filter by the shortcut extension or bat extension?
                 NpssFileChooser nFC = new NpssFileChooser();
-                File file = nFC.NpssFileChooser(MainUI.this,"C:/",FILE); //replace C:/ with directory variable
+                File file = nFC.NpssFileChooser(MainUI.this,directory,FILE);
                 if (file!=null) {
                     imsVersionCreate.setText(file.getName());
                 }
@@ -92,10 +97,11 @@ public class MainUI extends JPanel {
         chooseTSWVersionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: make this start in "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/Truesite/TSW/GCCREVS"
+                //Default should be "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/Truesite/TSW/GCCREVS"
+                String directory = verifyPath(tswRevsDirectory);
                 //TODO: do you need to filter by the shortcut extension or bat extension?
                 NpssFileChooser nFC = new NpssFileChooser();
-                File file = nFC.NpssFileChooser(MainUI.this,"C:/",FILE); //replace C:/ with directory variable
+                File file = nFC.NpssFileChooser(MainUI.this,directory,FILE);
                 if(file!=null) {
                     tswVersionCreate.setText(file.getName());
                 }
@@ -135,10 +141,9 @@ public class MainUI extends JPanel {
         siteToEditButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: start file chooser in the site directory
-                //TODO: only allow directories to be selected since each site is a directory
+                String directory = verifyPath(siteDirectory);
                 NpssFileChooser nFC = new NpssFileChooser();
-                File file = nFC.NpssFileChooser(MainUI.this,"C:/",DIRECTORY); //replace C:/ with directory variable
+                File file = nFC.NpssFileChooser(MainUI.this,directory,DIRECTORY);
                 if(file!=null) {
                     nameOfEditSite.setText(file.getName());
                 }
@@ -148,9 +153,9 @@ public class MainUI extends JPanel {
         editGccVersionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: make this and the create tab launch a single method with the destination variable passed in
+                String directory = verifyPath(gccRevsDirectory);
                 NpssFileChooser nFC = new NpssFileChooser();
-                File file = nFC.NpssFileChooser(MainUI.this,"C:/",FILE); //replace C:/ with directory variable
+                File file = nFC.NpssFileChooser(MainUI.this,directory,FILE);
                 if(file!=null) {
                     gccVersionEdit.setText(file.getName());
                 }
@@ -160,9 +165,9 @@ public class MainUI extends JPanel {
         editImsVersionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: make this and the create tab launch a single method with the destination variable passed in
+                String directory = verifyPath(imsRevsDirectory);
                 NpssFileChooser nFC = new NpssFileChooser();
-                File file = nFC.NpssFileChooser(MainUI.this,"C:/",FILE); //replace C:/ with directory variable
+                File file = nFC.NpssFileChooser(MainUI.this,directory,FILE);
                 if(file!=null) {
                     imsVersionEdit.setText(file.getName());
                 }
@@ -172,9 +177,9 @@ public class MainUI extends JPanel {
         editTswVersionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: make this and the create tab launch a single method with the destination variable passed in
+                String directory = verifyPath(tswRevsDirectory);
                 NpssFileChooser nFC = new NpssFileChooser();
-                File file = nFC.NpssFileChooser(MainUI.this,"C:/",FILE); //replace C:/ with directory variable
+                File file = nFC.NpssFileChooser(MainUI.this,directory,FILE);
                 if(file!=null) {
                     tswVersionEdit.setText(file.getName());
                 }
@@ -191,9 +196,9 @@ public class MainUI extends JPanel {
         siteToRestoreButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: can this and the edit tab share a method?
+                String directory = verifyPath(siteDirectory);
                 NpssFileChooser nFC = new NpssFileChooser();
-                File file = nFC.NpssFileChooser(MainUI.this,"C:/",DIRECTORY); //replace C:/ with directory variable
+                File file = nFC.NpssFileChooser(MainUI.this,directory,DIRECTORY);
                 if(file!=null) {
                     siteToRestoreChosen.setText(file.getName());
                 }
@@ -210,8 +215,9 @@ public class MainUI extends JPanel {
         changeSiteDirectoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String directory = verifyPath(siteDirectory);
                 NpssFileChooser nFC = new NpssFileChooser();
-                File file = nFC.NpssFileChooser(MainUI.this,"C:/",DIRECTORY); //replace C:/ with directory variable
+                File file = nFC.NpssFileChooser(MainUI.this,directory,DIRECTORY);
                 if(file!=null) {
                     siteDirectory.setText(file.getName());
                     //TODO: update the preferences file
@@ -222,10 +228,11 @@ public class MainUI extends JPanel {
         changeGCCRevsDirectoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String directory = verifyPath(gccRevsDirectory);
                 NpssFileChooser nFC = new NpssFileChooser();
-                File file = nFC.NpssFileChooser(MainUI.this,"C:/",DIRECTORY); //replace C:/ with directory variable
+                File file = nFC.NpssFileChooser(MainUI.this,directory,DIRECTORY);
                 if(file!=null) {
-                    siteDirectory.setText(file.getName());
+                    gccRevsDirectory.setText(file.getName());
                     //TODO: update the preferences file
                 }
             }
@@ -234,10 +241,11 @@ public class MainUI extends JPanel {
         changeIMSRevsDirectoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String directory = verifyPath(imsRevsDirectory);
                 NpssFileChooser nFC = new NpssFileChooser();
-                File file = nFC.NpssFileChooser(MainUI.this,"C:/",DIRECTORY); //replace C:/ with directory variable
+                File file = nFC.NpssFileChooser(MainUI.this,directory,DIRECTORY);
                 if(file!=null) {
-                    siteDirectory.setText(file.getName());
+                    imsRevsDirectory.setText(file.getName());
                     //TODO: update the preferences file
                 }
             }
@@ -246,10 +254,11 @@ public class MainUI extends JPanel {
         changeTSWRevsDirectoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String directory = verifyPath(tswRevsDirectory);
                 NpssFileChooser nFC = new NpssFileChooser();
-                File file = nFC.NpssFileChooser(MainUI.this,"C:/",DIRECTORY); //replace C:/ with directory variable
+                File file = nFC.NpssFileChooser(MainUI.this,directory,DIRECTORY);
                 if(file!=null) {
-                    siteDirectory.setText(file.getName());
+                    tswRevsDirectory.setText(file.getName());
                     //TODO: update the preferences file
                 }
             }
@@ -258,13 +267,13 @@ public class MainUI extends JPanel {
         tabbedPane.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 Component tabSelected = tabbedPane.getSelectedComponent();
-                if(tabSelected==createSiteTab){  //when the tab is selected clear the entry fields
+                if(tabSelected==createSiteTab){  //when the tab is selected clear the entry fields and check box
                     nameOfCreateSite.setText(null);
                     gccVersionCreate.setText(null);
                     imsVersionCreate.setText(null);
                     tswVersionCreate.setText(null);
                     copySosCheckBoxCreate.setSelected(true);
-                }else if(tabSelected==editSiteTab){  //when the tab is selected clear the entry fields
+                }else if(tabSelected==editSiteTab){  //when the tab is selected clear the entry fields and check box
                     nameOfEditSite.setText(null);
                     gccVersionEdit.setText(null);
                     imsVersionEdit.setText(null);
@@ -296,4 +305,16 @@ public class MainUI extends JPanel {
         createAndShowMainGUI();
     }
 
+    void runPopulatePreferences(){
+        PopulatePreferences populatePreferences = new PopulatePreferences(siteDirectory,gccRevsDirectory,
+                imsRevsDirectory,tswRevsDirectory);
+        populatePreferences.execute();
+    }
+
+    private String verifyPath(JTextField gccRevsDirectory){
+        //Check that the directory stored in the preferences file exists and return the path as a String
+        // if it does. Otherwise return null
+        Path path = Paths.get(gccRevsDirectory.getText());
+        return (Files.isDirectory(path))? path.toString() : null;
+    }
 }
