@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -75,7 +76,11 @@ public class MainUI extends JPanel {
                 NpssFileChooser nFC = new NpssFileChooser();
                 File file = nFC.NpssFileChooser(MainUI.this,directory,FILE);
                 if (file!=null) {
-                    gccVersionCreate.setText(file.getName());
+                    try {
+                        gccVersionCreate.setText(file.getCanonicalPath());
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                 }
             }
         });
@@ -89,7 +94,11 @@ public class MainUI extends JPanel {
                 NpssFileChooser nFC = new NpssFileChooser();
                 File file = nFC.NpssFileChooser(MainUI.this,directory,FILE);
                 if (file!=null) {
-                    imsVersionCreate.setText(file.getName());
+                    try {
+                        imsVersionCreate.setText(file.getCanonicalPath());
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                 }
             }
         });
@@ -103,7 +112,11 @@ public class MainUI extends JPanel {
                 NpssFileChooser nFC = new NpssFileChooser();
                 File file = nFC.NpssFileChooser(MainUI.this,directory,FILE);
                 if(file!=null) {
-                    tswVersionCreate.setText(file.getName());
+                    try {
+                        tswVersionCreate.setText(file.getCanonicalPath());
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                 }
             }
         });
@@ -145,7 +158,11 @@ public class MainUI extends JPanel {
                 NpssFileChooser nFC = new NpssFileChooser();
                 File file = nFC.NpssFileChooser(MainUI.this,directory,DIRECTORY);
                 if(file!=null) {
-                    nameOfEditSite.setText(file.getName());
+                    try {
+                        nameOfEditSite.setText(file.getCanonicalPath());
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                 }
             }
         });
@@ -157,7 +174,11 @@ public class MainUI extends JPanel {
                 NpssFileChooser nFC = new NpssFileChooser();
                 File file = nFC.NpssFileChooser(MainUI.this,directory,FILE);
                 if(file!=null) {
-                    gccVersionEdit.setText(file.getName());
+                    try {
+                        gccVersionEdit.setText(file.getCanonicalPath());
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                 }
             }
         });
@@ -169,7 +190,11 @@ public class MainUI extends JPanel {
                 NpssFileChooser nFC = new NpssFileChooser();
                 File file = nFC.NpssFileChooser(MainUI.this,directory,FILE);
                 if(file!=null) {
-                    imsVersionEdit.setText(file.getName());
+                    try {
+                        imsVersionEdit.setText(file.getCanonicalPath());
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                 }
             }
         });
@@ -181,7 +206,11 @@ public class MainUI extends JPanel {
                 NpssFileChooser nFC = new NpssFileChooser();
                 File file = nFC.NpssFileChooser(MainUI.this,directory,FILE);
                 if(file!=null) {
-                    tswVersionEdit.setText(file.getName());
+                    try {
+                        tswVersionEdit.setText(file.getCanonicalPath());
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                 }
             }
         });
@@ -200,7 +229,11 @@ public class MainUI extends JPanel {
                 NpssFileChooser nFC = new NpssFileChooser();
                 File file = nFC.NpssFileChooser(MainUI.this,directory,DIRECTORY);
                 if(file!=null) {
-                    siteToRestoreChosen.setText(file.getName());
+                    try {
+                        siteToRestoreChosen.setText(file.getCanonicalPath());
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                 }
             }
         });
@@ -219,7 +252,11 @@ public class MainUI extends JPanel {
                 NpssFileChooser nFC = new NpssFileChooser();
                 File file = nFC.NpssFileChooser(MainUI.this,directory,DIRECTORY);
                 if(file!=null) {
-                    siteDirectory.setText(file.getName());
+                    try {
+                        siteDirectory.setText(file.getCanonicalPath());
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                     //TODO: update the preferences file
                 }
             }
@@ -232,7 +269,11 @@ public class MainUI extends JPanel {
                 NpssFileChooser nFC = new NpssFileChooser();
                 File file = nFC.NpssFileChooser(MainUI.this,directory,DIRECTORY);
                 if(file!=null) {
-                    gccRevsDirectory.setText(file.getName());
+                    try {
+                        gccRevsDirectory.setText(file.getCanonicalPath());
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                     //TODO: update the preferences file
                 }
             }
@@ -245,7 +286,11 @@ public class MainUI extends JPanel {
                 NpssFileChooser nFC = new NpssFileChooser();
                 File file = nFC.NpssFileChooser(MainUI.this,directory,DIRECTORY);
                 if(file!=null) {
-                    imsRevsDirectory.setText(file.getName());
+                    try {
+                        imsRevsDirectory.setText(file.getCanonicalPath());
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                     //TODO: update the preferences file
                 }
             }
@@ -258,7 +303,11 @@ public class MainUI extends JPanel {
                 NpssFileChooser nFC = new NpssFileChooser();
                 File file = nFC.NpssFileChooser(MainUI.this,directory,DIRECTORY);
                 if(file!=null) {
-                    tswRevsDirectory.setText(file.getName());
+                    try {
+                        tswRevsDirectory.setText(file.getCanonicalPath());
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                     //TODO: update the preferences file
                 }
             }
