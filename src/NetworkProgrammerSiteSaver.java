@@ -19,6 +19,6 @@ public class NetworkProgrammerSiteSaver {
             e.printStackTrace();
         }
         //Load the preferences file to make sure that the directories values are current
-        mainUI.runPopulatePreferences();
+        mainUI.runPopulateDirectoriesFromPreferences();
     }
 }

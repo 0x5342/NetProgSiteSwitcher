@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 /**
  * Created by Steven Brown on 5/30/2016.
  * This program will allow the user to save network setups for different sites
- * by selecting which TSW programmer needs to be loaded and saving a copy of
+ * by selecting which GCC, IMS, & TSW programmers need to be loaded and saving a copy of
  * the sos.ini file to restore programmers directories that the site needs.
  */
 public class MainUI extends JPanel {
@@ -66,6 +66,9 @@ public class MainUI extends JPanel {
                 System.exit(0);
             }
         });
+        /**
+         * CREATE SITE TAB
+         */
         //Create site tab: choose the GCC version of software
         chooseGCCVersionButton.addActionListener(new ActionListener() {
             @Override
@@ -150,6 +153,9 @@ public class MainUI extends JPanel {
                 }
             }
         });
+        /**
+         * EDIT SITE TAB
+         */
         //Edit site tab: choose the site to edit
         siteToEditButton.addActionListener(new ActionListener() {
             @Override
@@ -221,6 +227,9 @@ public class MainUI extends JPanel {
                 //TODO: can this and the create site button share a method?
             }
         });
+        /**
+         * RESTORE SITE TAB
+         */
         //Restore site tab: choose the site to restore
         siteToRestoreButton.addActionListener(new ActionListener() {
             @Override
@@ -244,6 +253,9 @@ public class MainUI extends JPanel {
                 //TODO: add code
             }
         });
+        /**
+         * DIRECTORIES TAB
+         */
         //Directories tab: change the directory where the sites are stored
         changeSiteDirectoryButton.addActionListener(new ActionListener() {
             @Override
@@ -257,7 +269,7 @@ public class MainUI extends JPanel {
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
-                    //TODO: update the preferences file
+                    runWriteDirectoriesFromPreferences();
                 }
             }
         });
@@ -274,7 +286,7 @@ public class MainUI extends JPanel {
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
-                    //TODO: update the preferences file
+                    runWriteDirectoriesFromPreferences();
                 }
             }
         });
@@ -291,7 +303,7 @@ public class MainUI extends JPanel {
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
-                    //TODO: update the preferences file
+                    runWriteDirectoriesFromPreferences();
                 }
             }
         });
@@ -308,7 +320,7 @@ public class MainUI extends JPanel {
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
-                    //TODO: update the preferences file
+                    runWriteDirectoriesFromPreferences();
                 }
             }
         });
@@ -331,9 +343,7 @@ public class MainUI extends JPanel {
                 }else if(tabSelected==restoreSiteTab){  //when the tab is selected clear the entry fields
                     siteToRestoreChosen.setText(null);
                 }else if(tabSelected==directoriesTab){  //when the tab is selected populate fields from preferences file
-                    PopulateDirectoriesFromPreferences populateDirectoriesFromPreferences = new PopulateDirectoriesFromPreferences(siteDirectory,gccRevsDirectory,
-                            imsRevsDirectory,tswRevsDirectory);
-                    populateDirectoriesFromPreferences.execute();
+                    runPopulateDirectoriesFromPreferences();
                 }
             }
         });
@@ -354,10 +364,20 @@ public class MainUI extends JPanel {
         createAndShowMainGUI();
     }
 
-    void runPopulatePreferences(){
-        PopulateDirectoriesFromPreferences populateDirectoriesFromPreferences = new PopulateDirectoriesFromPreferences(siteDirectory,gccRevsDirectory,
-                imsRevsDirectory,tswRevsDirectory);
+    void runPopulateDirectoriesFromPreferences(){
+        PopulateDirectoriesFromPreferences populateDirectoriesFromPreferences =
+                new PopulateDirectoriesFromPreferences(
+                        siteDirectory,gccRevsDirectory,
+                        imsRevsDirectory,tswRevsDirectory);
         populateDirectoriesFromPreferences.execute();
+    }
+
+    void runWriteDirectoriesFromPreferences(){
+        WriteDirectoriesToPreferences writeDirectoriesToPreferences =
+                new WriteDirectoriesToPreferences(
+                        siteDirectory,gccRevsDirectory,
+                        imsRevsDirectory,tswRevsDirectory);
+        writeDirectoriesToPreferences.execute();
     }
 
     private String verifyPath(JTextField gccRevsDirectory){

@@ -8,26 +8,27 @@ import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
-
-public class PopulateDirectoriesFromPreferences extends SwingWorker<String[],Object>{
-    private String[] directories = new String[4];
+public class WriteDirectoriesToPreferences extends SwingWorker<Boolean,Object>{
     private final JTextField siteTextField, gccTextField, imsTextField, tswTextField;
-    private static int SITE = 0;
-    private static int GCC = 1;
-    private static int IMS = 2;
-    private static int TSW = 3;
 
-    public PopulateDirectoriesFromPreferences(JTextField site, JTextField gcc, JTextField ims, JTextField tsw) {
+    public WriteDirectoriesToPreferences(JTextField site, JTextField gcc, JTextField ims, JTextField tsw) {
         siteTextField = site;
         gccTextField = gcc;
         imsTextField = ims;
         tswTextField = tsw;
     }
 
-    public String[] doInBackground() {
+    public Boolean doInBackground() {
 
         try{
             String preferencesFilePath = "files/preferences.xml";
@@ -46,32 +47,43 @@ public class PopulateDirectoriesFromPreferences extends SwingWorker<String[],Obj
                     String location = eElement.getElementsByTagName("location").item(0).getTextContent();
                     switch (id){
                         case "site":
-                            directories[SITE]=location;
+                            eElement.getElementsByTagName("location").item(0).setTextContent(siteTextField.getText());
                             break;
                         case "gcc":
-                            directories[GCC]=location;
+                            eElement.getElementsByTagName("location").item(0).setTextContent(gccTextField.getText());
                             break;
                         case "ims":
-                            directories[IMS]=location;
+                            eElement.getElementsByTagName("location").item(0).setTextContent(imsTextField.getText());
                             break;
                         case "tsw":
-                            directories[TSW]=location;
+                            eElement.getElementsByTagName("location").item(0).setTextContent(tswTextField.getText());
                             break;
                     }
                 }
             }
+            // Write the changes into the xml file
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(document);
+            StreamResult result = new StreamResult(new File(preferencesFilePath));
+            transformer.transform(source,result);
+
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         } catch (SAXException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (TransformerConfigurationException e) {
+            e.printStackTrace();
+        } catch (TransformerException e) {
+            e.printStackTrace();
         }
-        return directories;
+        return true;
     }
 
     protected void done(){
-        String[] result = null;
+        Boolean result = false;
         try {
             result = get();
         } catch (InterruptedException e) {
@@ -79,9 +91,8 @@ public class PopulateDirectoriesFromPreferences extends SwingWorker<String[],Obj
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        siteTextField.setText(result[SITE]);
-        gccTextField.setText(result[GCC]);
-        imsTextField.setText(result[IMS]);
-        tswTextField.setText(result[TSW]);
+        if(result){
+            //TODO: popup a message about file updated?
+        }
     }
 }
