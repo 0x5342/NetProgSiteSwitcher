@@ -331,9 +331,9 @@ public class MainUI extends JPanel {
                 }else if(tabSelected==restoreSiteTab){  //when the tab is selected clear the entry fields
                     siteToRestoreChosen.setText(null);
                 }else if(tabSelected==directoriesTab){  //when the tab is selected populate fields from preferences file
-                    PopulatePreferences populatePreferences = new PopulatePreferences(siteDirectory,gccRevsDirectory,
+                    PopulateDirectoriesFromPreferences populateDirectoriesFromPreferences = new PopulateDirectoriesFromPreferences(siteDirectory,gccRevsDirectory,
                             imsRevsDirectory,tswRevsDirectory);
-                    populatePreferences.execute();
+                    populateDirectoriesFromPreferences.execute();
                 }
             }
         });
@@ -355,9 +355,9 @@ public class MainUI extends JPanel {
     }
 
     void runPopulatePreferences(){
-        PopulatePreferences populatePreferences = new PopulatePreferences(siteDirectory,gccRevsDirectory,
+        PopulateDirectoriesFromPreferences populateDirectoriesFromPreferences = new PopulateDirectoriesFromPreferences(siteDirectory,gccRevsDirectory,
                 imsRevsDirectory,tswRevsDirectory);
-        populatePreferences.execute();
+        populateDirectoriesFromPreferences.execute();
     }
 
     private String verifyPath(JTextField gccRevsDirectory){

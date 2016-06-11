@@ -2,26 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5386fa04-d9e3-47c9-9f4c-629e2144eda8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$1.class" afterPath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$10.class" afterPath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$10.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$11.class" afterPath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$11.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$12.class" afterPath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$12.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$13.class" afterPath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$13.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$14.class" afterPath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$14.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$15.class" afterPath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$15.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$16.class" afterPath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$16.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/PopulatePreferences.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$17.class" afterPath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$17.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$2.class" afterPath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$3.class" afterPath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$4.class" afterPath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$5.class" afterPath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$6.class" afterPath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$7.class" afterPath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$8.class" afterPath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$9.class" afterPath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI$9.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI.class" afterPath="$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainUI.form" afterPath="$PROJECT_DIR$/src/MainUI.form" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainUI.java" afterPath="$PROJECT_DIR$/src/MainUI.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PopulatePreferences.java" afterPath="$PROJECT_DIR$/src/PopulateDirectoriesFromPreferences.java" />
     </list>
     <ignored path="NetworkProgrammerSites.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,10 +30,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainUI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="670">
+            <state relative-caret-position="3961">
               <caret line="235" column="21" selection-start-line="235" selection-start-column="21" selection-end-line="235" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -58,7 +45,7 @@
       <file leaf-file-name="NpssFileChooser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NpssFileChooser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="204">
               <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -77,10 +64,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PopulatePreferences.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PopulatePreferences.java">
+      <file leaf-file-name="PopulateDirectoriesFromPreferences.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/PopulateDirectoriesFromPreferences.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="367">
               <caret line="60" column="62" selection-start-line="60" selection-start-column="62" selection-end-line="60" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -122,11 +109,12 @@
         <option value="$PROJECT_DIR$/src/SetDirectory.java" />
         <option value="$PROJECT_DIR$/files/preferences.xml" />
         <option value="C:/Program Files/Java/jdk1.8.0_60/jre/lib/rt.jar!/sun/swing/AccumulativeRunnable.class" />
-        <option value="$PROJECT_DIR$/src/MainUI.form" />
         <option value="$PROJECT_DIR$/src/NpssFileChooser.java" />
         <option value="$PROJECT_DIR$/src/PopulatePreferences.java" />
         <option value="$PROJECT_DIR$/src/NetworkProgrammerSiteSaver.java" />
         <option value="$PROJECT_DIR$/src/MainUI.java" />
+        <option value="$PROJECT_DIR$/src/MainUI.form" />
+        <option value="$PROJECT_DIR$/src/PopulateDirectoriesFromPreferences.java" />
       </list>
     </option>
   </component>
@@ -161,6 +149,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -177,6 +166,24 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="NetworkProgrammerSites" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NetworkProgrammerSites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NetworkProgrammerSites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MainUI" />
+              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -209,22 +216,21 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="282" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="280" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="310" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="308" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="312" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="310" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="986" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="979" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="304" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
@@ -515,7 +521,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -529,7 +535,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -565,7 +571,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/PopulatePreferences.java">
+    <entry file="file://$PROJECT_DIR$/src/PopulateDirectoriesFromPreferences.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
           <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
@@ -603,7 +609,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PopulatePreferences.java">
+    <entry file="file://$PROJECT_DIR$/src/PopulateDirectoriesFromPreferences.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
           <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
@@ -648,7 +654,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PopulatePreferences.java">
+    <entry file="file://$PROJECT_DIR$/src/PopulateDirectoriesFromPreferences.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
           <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
@@ -683,7 +689,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PopulatePreferences.java">
+    <entry file="file://$PROJECT_DIR$/src/PopulateDirectoriesFromPreferences.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
           <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
@@ -718,7 +724,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PopulatePreferences.java">
+    <entry file="file://$PROJECT_DIR$/src/PopulateDirectoriesFromPreferences.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1309">
           <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
@@ -738,7 +744,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PopulatePreferences.java">
+    <entry file="file://$PROJECT_DIR$/src/PopulateDirectoriesFromPreferences.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
@@ -758,7 +764,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PopulatePreferences.java">
+    <entry file="file://$PROJECT_DIR$/src/PopulateDirectoriesFromPreferences.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="51" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
@@ -802,7 +808,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PopulatePreferences.java" />
+    <entry file="file://$PROJECT_DIR$/src/PopulateDirectoriesFromPreferences.java" />
     <entry file="file://$PROJECT_DIR$/src/MainUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -918,16 +924,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainUI.form">
-      <provider editor-type-id="ui-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/out/production/NetworkProgrammerSites/MainUI.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -937,18 +933,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NpssFileChooser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="204">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PopulatePreferences.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="60" column="62" selection-start-line="60" selection-start-column="62" selection-end-line="60" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -965,8 +951,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="670">
+        <state relative-caret-position="3961">
           <caret line="235" column="21" selection-start-line="235" selection-start-column="21" selection-end-line="235" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainUI.form">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PopulateDirectoriesFromPreferences.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="60" column="62" selection-start-line="60" selection-start-column="62" selection-end-line="60" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

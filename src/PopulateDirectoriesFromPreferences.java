@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
 
-public class PopulatePreferences extends SwingWorker<String[],Object>{
+public class PopulateDirectoriesFromPreferences extends SwingWorker<String[],Object>{
     private String[] directories = new String[4];
     private final JTextField siteTextField, gccTextField, imsTextField, tswTextField;
     private static int SITE = 0;
@@ -21,7 +21,7 @@ public class PopulatePreferences extends SwingWorker<String[],Object>{
     private static int IMS = 2;
     private static int TSW = 3;
 
-    public PopulatePreferences(JTextField site, JTextField gcc, JTextField ims, JTextField tsw) {
+    public PopulateDirectoriesFromPreferences(JTextField site, JTextField gcc, JTextField ims, JTextField tsw) {
 
         siteTextField = site;
         gccTextField = gcc;
