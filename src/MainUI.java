@@ -75,7 +75,6 @@ public class MainUI extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 //Default should be "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/GCC/GCC REVS"
                 String directory = verifyPath(gccRevsDirectory);
-                //TODO: do you need to filter by the shortcut extension or bat extension?
                 NpssFileChooser nFC = new NpssFileChooser();
                 File file = nFC.NpssFileChooser(MainUI.this,directory,FILE);
                 if (file!=null) {
@@ -93,7 +92,6 @@ public class MainUI extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 //Default should be "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/IMS/IMS REVS"
                 String directory = verifyPath(imsRevsDirectory);
-                //TODO: do you need to filter by the shortcut extension or bat extension?
                 NpssFileChooser nFC = new NpssFileChooser();
                 File file = nFC.NpssFileChooser(MainUI.this,directory,FILE);
                 if (file!=null) {
@@ -111,7 +109,6 @@ public class MainUI extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 //Default should be "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/Truesite/TSW/GCCREVS"
                 String directory = verifyPath(tswRevsDirectory);
-                //TODO: do you need to filter by the shortcut extension or bat extension?
                 NpssFileChooser nFC = new NpssFileChooser();
                 File file = nFC.NpssFileChooser(MainUI.this,directory,FILE);
                 if(file!=null) {
@@ -123,40 +120,23 @@ public class MainUI extends JPanel {
                 }
             }
         });
-        //Create site tab: create the new site with the selected options
+        // Create site tab: create the new site with the selected options
         createTheSiteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                // Check if text has been entered into the siteName text field
                 if(nameOfCreateSite.getText().isEmpty()){
-                    //TODO: create a dialog popup to say that a name must be entered
+                    // If the text field is empty, display a popup
+                    JOptionPane.showMessageDialog(null, "Please enter a name for the site.");
                 }else{
-                    //TODO: check to see if a folder with that name already exists
-                    //TODO: if it does, create a dialog popup stating so and suggestion the edit site tab
-//                    Path sitePath = Paths.get("/"+nameOfCreateSite.getText());
-//                    try {
-//                        Files.createDirectory(sitePath);
-//                    } catch (IOException e1) {
-//                        e1.printStackTrace();
-//                    }
-                    //create a directory, within the directory where the program resides, with the new site name
-                    boolean success = (new File(nameOfCreateSite.getText())).mkdir();
-                    if (!success) {
-                        // Directory creation failed
-                        //TODO: some kind of notification that the creation failed
-                    }else {//directory creation was a success
-                        if (copySosCheckBoxCreate.isSelected()) {
-                            //TODO: copy "C:/Windows/sos.ini" to the new site directory just created
-                        }
-                        //TODO: create file_links.txt with the GCC version, IMS version, & TSW version on separate lines
-                        //TODO: positive feedback that the site was created
-                    }
+                    runCreateSite();
                 }
             }
         });
         /**
          * EDIT SITE TAB
          */
-        //Edit site tab: choose the site to edit
+        // Edit site tab: choose the site to edit
         siteToEditButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -172,7 +152,7 @@ public class MainUI extends JPanel {
                 }
             }
         });
-        //Edit site tab: choose the GCC version of software
+        // Edit site tab: choose the GCC version of software
         editGccVersionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -188,7 +168,7 @@ public class MainUI extends JPanel {
                 }
             }
         });
-        //Edit site tab: choose the IMS version of software
+        // Edit site tab: choose the IMS version of software
         editImsVersionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -204,7 +184,7 @@ public class MainUI extends JPanel {
                 }
             }
         });
-        //Edit site tab: choose the TSW version of software
+        // Edit site tab: choose the TSW version of software
         editTswVersionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -220,7 +200,7 @@ public class MainUI extends JPanel {
                 }
             }
         });
-        //Edit site tab: update the site with the changed information
+        // Edit site tab: update the site with the changed information
         saveChangesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -230,7 +210,7 @@ public class MainUI extends JPanel {
         /**
          * RESTORE SITE TAB
          */
-        //Restore site tab: choose the site to restore
+        // Restore site tab: choose the site to restore
         siteToRestoreButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -246,7 +226,7 @@ public class MainUI extends JPanel {
                 }
             }
         });
-        //Restore site tab: run each selected Rev file and then copy the sos.ini back into C:\Windows
+        // Restore site tab: run each selected Rev file and then copy the sos.ini back into C:\Windows
         restoreSiteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -256,7 +236,7 @@ public class MainUI extends JPanel {
         /**
          * DIRECTORIES TAB
          */
-        //Directories tab: change the directory where the sites are stored
+        // Directories tab: change the directory where the sites are stored
         changeSiteDirectoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -273,7 +253,7 @@ public class MainUI extends JPanel {
                 }
             }
         });
-        //Directories tab: change where the GCC Revs directory is located
+        // Directories tab: change where the GCC Revs directory is located
         changeGCCRevsDirectoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -290,7 +270,7 @@ public class MainUI extends JPanel {
                 }
             }
         });
-        //Directories tab: change where the IMS Revs directory is located
+        // Directories tab: change where the IMS Revs directory is located
         changeIMSRevsDirectoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -307,7 +287,7 @@ public class MainUI extends JPanel {
                 }
             }
         });
-        //Directories tab: change where the TSW Revs directory is located
+        // Directories tab: change where the TSW Revs directory is located
         changeTSWRevsDirectoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -324,7 +304,7 @@ public class MainUI extends JPanel {
                 }
             }
         });
-        //When changing tabs, either clear the entry fields or populate fields from the preferences file
+        // When changing tabs, either clear the entry fields or populate fields from the preferences file
         tabbedPane.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 Component tabSelected = tabbedPane.getSelectedComponent();
@@ -360,6 +340,32 @@ public class MainUI extends JPanel {
         frame.setVisible(true);
     }
 
+    private void runWriteDirectoriesFromPreferences(){
+        WriteDirectoriesToPreferences writeDirectoriesToPreferences =
+                new WriteDirectoriesToPreferences(
+                        siteDirectory,gccRevsDirectory,
+                        imsRevsDirectory,tswRevsDirectory);
+        writeDirectoriesToPreferences.execute();
+    }
+
+    private void runCreateSite(){
+        CreateSite createSite = new CreateSite(
+                siteDirectory.getText(),
+                nameOfCreateSite.getText(),
+                gccVersionCreate.getText(),
+                imsVersionCreate.getText(),
+                tswVersionCreate.getText(),
+                copySosCheckBoxCreate.isSelected());
+        createSite.execute();
+    }
+
+    private String verifyPath(JTextField gccRevsDirectory){
+        // Check that the directory stored in the preferences file exists and return the path as a String
+        // if it does. Otherwise return null
+        Path path = Paths.get(gccRevsDirectory.getText());
+        return (Files.isDirectory(path))? path.toString() : null;
+    }
+
     void mainScreen(){
         createAndShowMainGUI();
     }
@@ -370,20 +376,5 @@ public class MainUI extends JPanel {
                         siteDirectory,gccRevsDirectory,
                         imsRevsDirectory,tswRevsDirectory);
         populateDirectoriesFromPreferences.execute();
-    }
-
-    void runWriteDirectoriesFromPreferences(){
-        WriteDirectoriesToPreferences writeDirectoriesToPreferences =
-                new WriteDirectoriesToPreferences(
-                        siteDirectory,gccRevsDirectory,
-                        imsRevsDirectory,tswRevsDirectory);
-        writeDirectoriesToPreferences.execute();
-    }
-
-    private String verifyPath(JTextField gccRevsDirectory){
-        //Check that the directory stored in the preferences file exists and return the path as a String
-        // if it does. Otherwise return null
-        Path path = Paths.get(gccRevsDirectory.getText());
-        return (Files.isDirectory(path))? path.toString() : null;
     }
 }

@@ -1,17 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-	<preferences>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><preferences>
 		<directories>
 			<directory id="site">
-				<location>/files</location>
+				<location>C:\Users\sbrown\Desktop\SiteSaverTest</location>
 			</directory>
-			<directory id ="gcc">
-				<location>C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/GCC/GCC REVS</location>
+			<directory id="gcc">
+				<location>C:\Users\sbrown\Desktop\SiteSaverTest\GCC REVS</location>
 			</directory>
 			<directory id="ims">
-				<location>C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/IMS/IMS REVS</location>
+				<location>C:\Users\sbrown\Desktop\SiteSaverTest\IMS REVS</location>
 			</directory>
 			<directory id="tsw">
-				<location>C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Simplex/Truesite/TSW/GCCREVS</location>
+				<location>C:\Users\sbrown\Desktop\SiteSaverTest\TSW\GCCREVS</location>
 			</directory>
 		</directories>
 	</preferences>
