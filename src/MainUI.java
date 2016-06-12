@@ -4,11 +4,15 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
+import static java.lang.Thread.sleep;
 
 /**
  * Created by Steven Brown on 5/30/2016.
@@ -59,7 +63,15 @@ public class MainUI extends JPanel {
 
     public MainUI() {
 
-        //Master exit button to quit the application
+        // Load the directories from the preference file after startup
+        tabbedPane.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                super.focusGained(e);
+                runPopulateDirectoriesFromPreferences();
+            }
+        });
+        // Master exit button to quit the application
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -69,7 +81,7 @@ public class MainUI extends JPanel {
         /**
          * CREATE SITE TAB
          */
-        //Create site tab: choose the GCC version of software
+        // Create site tab: choose the GCC version of software
         chooseGCCVersionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -86,7 +98,7 @@ public class MainUI extends JPanel {
                 }
             }
         });
-        //Create site tab: choose the IMS version of software
+        // Create site tab: choose the IMS version of software
         chooseIMSVersionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -103,7 +115,7 @@ public class MainUI extends JPanel {
                 }
             }
         });
-        //Create site tab: choose the TSW version of software
+        // Create site tab: choose the TSW version of software
         chooseTSWVersionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -359,10 +371,15 @@ public class MainUI extends JPanel {
         createSite.execute();
     }
 
-    private String verifyPath(JTextField gccRevsDirectory){
+    private String verifyPath(JTextField revsDirectory){
         // Check that the directory stored in the preferences file exists and return the path as a String
         // if it does. Otherwise return null
-        Path path = Paths.get(gccRevsDirectory.getText());
+        Path path = Paths.get(revsDirectory.getText());
+//        if (path.toString().equalsIgnoreCase("")){
+//            runPopulateDirectoriesFromPreferences();
+//            repaint();
+//            path = Paths.get(revsDirectory.getText());
+//        }
         return (Files.isDirectory(path))? path.toString() : null;
     }
 
