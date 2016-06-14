@@ -12,8 +12,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static java.lang.Thread.sleep;
-
 /**
  * Created by Steven Brown on 5/30/2016.
  * This program will allow the user to save network setups for different sites
@@ -161,6 +159,13 @@ public class MainUI extends JPanel {
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
+                    //TODO: Check that it is a recognized site file
+                    //TODO: Read and populate the fields from this site's xml file
+                    editGccVersionButton.setEnabled(true);
+                    editImsVersionButton.setEnabled(true);
+                    editTswVersionButton.setEnabled(true);
+                    copySosCheckBoxEdit.setEnabled(true);
+                    saveChangesButton.setEnabled(true);
                 }
             }
         });
@@ -320,21 +325,31 @@ public class MainUI extends JPanel {
         tabbedPane.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 Component tabSelected = tabbedPane.getSelectedComponent();
-                if(tabSelected==createSiteTab){  //when the tab is selected clear the entry fields and check box
+                if(tabSelected==createSiteTab){
+                    //when the tab is selected clear the entry fields and check box
                     nameOfCreateSite.setText(null);
                     gccVersionCreate.setText(null);
                     imsVersionCreate.setText(null);
                     tswVersionCreate.setText(null);
                     copySosCheckBoxCreate.setSelected(true);
-                }else if(tabSelected==editSiteTab){  //when the tab is selected clear the entry fields and check box
+                }else if(tabSelected==editSiteTab){
+                    //when the tab is selected clear the entry fields and check box and disable buttons
                     nameOfEditSite.setText(null);
                     gccVersionEdit.setText(null);
                     imsVersionEdit.setText(null);
                     tswVersionEdit.setText(null);
                     copySosCheckBoxEdit.setSelected(true);
-                }else if(tabSelected==restoreSiteTab){  //when the tab is selected clear the entry fields
+                    editGccVersionButton.setEnabled(false);
+                    editImsVersionButton.setEnabled(false);
+                    editTswVersionButton.setEnabled(false);
+                    copySosCheckBoxEdit.setEnabled(false);
+                    saveChangesButton.setEnabled(false);
+                }else if(tabSelected==restoreSiteTab){
+                    //when the tab is selected clear the entry field and disable the restore button
                     siteToRestoreChosen.setText(null);
-                }else if(tabSelected==directoriesTab){  //when the tab is selected populate fields from preferences file
+                    restoreSiteButton.setEnabled(false);
+                }else if(tabSelected==directoriesTab){
+                    //when the tab is selected populate fields from preferences file
                     runPopulateDirectoriesFromPreferences();
                 }
             }
