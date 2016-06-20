@@ -1,16 +1,17 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><preferences>
-		<directories>
-			<directory id="site">
-				<location>C:\Users\sbrown\Desktop\SiteSaverTest</location>
-			</directory>
-			<directory id="gcc">
-				<location>C:\Users\sbrown\Desktop\SiteSaverTest\GCC REVS</location>
-			</directory>
-			<directory id="ims">
-				<location>C:\Users\sbrown\Desktop\SiteSaverTest\IMS REVS</location>
-			</directory>
-			<directory id="tsw">
-				<location>C:\Users\sbrown\Desktop\SiteSaverTest\TSW\GCCREVS</location>
-			</directory>
-		</directories>
-	</preferences>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<preferences>
+    <directories>
+        <directory id="site">
+            <location>C:\Users\sbrown\Desktop\SiteSaverTest</location>
+        </directory>
+        <directory id="gcc">
+            <location>C:\Users\sbrown\Desktop\SiteSaverTest\GCC REVS</location>
+        </directory>
+        <directory id="ims">
+            <location>C:\Users\sbrown\Desktop\SiteSaverTest\IMS REVS</location>
+        </directory>
+        <directory id="tsw">
+            <location>C:\Users\sbrown\Desktop\SiteSaverTest\TSW\GCCREVS</location>
+        </directory>
+    </directories>
+</preferences>

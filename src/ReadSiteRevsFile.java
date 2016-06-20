@@ -11,17 +11,16 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
-
-public class PopulateDirectoriesFromPreferences extends SwingWorker<String[],Object>{
-    private String[] directories = new String[4];
-    private final JTextField siteTextField, gccTextField, imsTextField, tswTextField;
-    private static int SITE = 0;
+public class ReadSiteRevsFile extends SwingWorker<String[],Object>{
+    private String[] revs = new String[4];
+    private String sitePath;
+    private final JTextField gccTextField, imsTextField, tswTextField;
     private static int GCC = 1;
     private static int IMS = 2;
     private static int TSW = 3;
 
-    public PopulateDirectoriesFromPreferences(JTextField site, JTextField gcc, JTextField ims, JTextField tsw) {
-        siteTextField = site;
+    public ReadSiteRevsFile(String site, JTextField gcc, JTextField ims, JTextField tsw) {
+        sitePath = site;
         gccTextField = gcc;
         imsTextField = ims;
         tswTextField = tsw;
@@ -30,32 +29,28 @@ public class PopulateDirectoriesFromPreferences extends SwingWorker<String[],Obj
     public String[] doInBackground() {
 
         try{
-            String preferencesFilePath = "files/preferences.xml";
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-            Document document = documentBuilder.parse(preferencesFilePath);
+            Document document = documentBuilder.parse(sitePath+"/revs_links.xml");
             //Normalize the XML structure
             document.getDocumentElement().normalize();
             //Get all directories nodes
-            NodeList nodeList = document.getElementsByTagName("directory");
+            NodeList nodeList = document.getElementsByTagName("rev");
             for (int i = 0; i < nodeList.getLength(); i++) {
                 Node node = nodeList.item(i);
                 if(node.getNodeType()==Node.ELEMENT_NODE){
                     Element eElement = (Element) node;
                     String id = eElement.getAttribute("id");
-                    String location = eElement.getElementsByTagName("location").item(0).getTextContent();
+                    String revPath = eElement.getElementsByTagName("path").item(0).getTextContent();
                     switch (id){
-                        case "site":
-                            directories[SITE]=location;
-                            break;
                         case "gcc":
-                            directories[GCC]=location;
+                            revs[GCC]=revPath;
                             break;
                         case "ims":
-                            directories[IMS]=location;
+                            revs[IMS]=revPath;
                             break;
                         case "tsw":
-                            directories[TSW]=location;
+                            revs[TSW]=revPath;
                             break;
                     }
                 }
@@ -67,7 +62,7 @@ public class PopulateDirectoriesFromPreferences extends SwingWorker<String[],Obj
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return directories;
+        return revs;
     }
 
     protected void done(){
@@ -79,9 +74,9 @@ public class PopulateDirectoriesFromPreferences extends SwingWorker<String[],Obj
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        siteTextField.setText(result[SITE]);
         gccTextField.setText(result[GCC]);
         imsTextField.setText(result[IMS]);
         tswTextField.setText(result[TSW]);
     }
 }
+

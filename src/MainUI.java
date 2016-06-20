@@ -161,6 +161,7 @@ public class MainUI extends JPanel {
                     }
                     //TODO: Check that it is a recognized site file
                     //TODO: Read and populate the fields from this site's xml file
+                    runReadSiteRevsFile(nameOfEditSite.getText());
                     editGccVersionButton.setEnabled(true);
                     editImsVersionButton.setEnabled(true);
                     editTswVersionButton.setEnabled(true);
@@ -373,6 +374,15 @@ public class MainUI extends JPanel {
                         siteDirectory,gccRevsDirectory,
                         imsRevsDirectory,tswRevsDirectory);
         writeDirectoriesToPreferences.execute();
+    }
+
+    private void runReadSiteRevsFile(String site){
+        ReadSiteRevsFile readSiteRevsFile = new ReadSiteRevsFile(
+                site,
+                gccVersionEdit,
+                imsVersionEdit,
+                tswVersionEdit);
+        readSiteRevsFile.execute();
     }
 
     private void runCreateSite(){
