@@ -29,29 +29,41 @@ public class ReadSiteRevsFile extends SwingWorker<String[],Object>{
     public String[] doInBackground() {
 
         try{
+            //TODO: Check if revs_links.xml exists before even trying to parse
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
             Document document = documentBuilder.parse(sitePath+"/revs_links.xml");
             //Normalize the XML structure
             document.getDocumentElement().normalize();
             //Get all directories nodes
-            NodeList nodeList = document.getElementsByTagName("rev");
+            Node revsNode = document.getFirstChild();
+            NodeList nodeList = revsNode.getChildNodes();
             for (int i = 0; i < nodeList.getLength(); i++) {
-                Node node = nodeList.item(i);
-                if(node.getNodeType()==Node.ELEMENT_NODE){
-                    Element eElement = (Element) node;
-                    String id = eElement.getAttribute("id");
-                    String revPath = eElement.getElementsByTagName("path").item(0).getTextContent();
-                    switch (id){
-                        case "gcc":
-                            revs[GCC]=revPath;
-                            break;
-                        case "ims":
-                            revs[IMS]=revPath;
-                            break;
-                        case "tsw":
-                            revs[TSW]=revPath;
-                            break;
+                Node subNode = nodeList.item(i);
+                if(subNode.getNodeType()==Node.ELEMENT_NODE){
+                    if(subNode.getNodeName().equals("gcc")){
+                        if(subNode.hasChildNodes()){
+                            Node subNodeChild = subNode.getFirstChild();
+                            if(subNodeChild.getNodeType()==Node.TEXT_NODE){
+                                revs[GCC]=subNodeChild.getNodeValue();
+                            }
+                        }
+                    }
+                    if(subNode.getNodeName().equals("ims")){
+                        if(subNode.hasChildNodes()){
+                            Node subNodeChild = subNode.getFirstChild();
+                            if(subNodeChild.getNodeType()==Node.TEXT_NODE){
+                                revs[IMS]=subNodeChild.getNodeValue();
+                            }
+                        }
+                    }
+                    if(subNode.getNodeName().equals("tsw")){
+                        if(subNode.hasChildNodes()){
+                            Node subNodeChild = subNode.getFirstChild();
+                            if(subNodeChild.getNodeType()==Node.TEXT_NODE){
+                                revs[TSW]=subNodeChild.getNodeValue();
+                            }
+                        }
                     }
                 }
             }
@@ -60,7 +72,9 @@ public class ReadSiteRevsFile extends SwingWorker<String[],Object>{
         } catch (SAXException e) {
             e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "No existing link file was found in the site folder.\n"+
+                    "Just choose \"Create Site\" if no GCC, IMS, or TSW is on this network.\n"+
+                    "Otherwise, choose links to add to the site or delete the site.");
         }
         return revs;
     }

@@ -146,6 +146,7 @@ public class MainUI extends JPanel {
         /**
          * EDIT SITE TAB
          */
+        //TODO: Add a way to change the site name
         // Edit site tab: choose the site to edit
         siteToEditButton.addActionListener(new ActionListener() {
             @Override
@@ -160,7 +161,6 @@ public class MainUI extends JPanel {
                         e1.printStackTrace();
                     }
                     //TODO: Check that it is a recognized site file
-                    //TODO: Read and populate the fields from this site's xml file
                     runReadSiteRevsFile(nameOfEditSite.getText());
                     editGccVersionButton.setEnabled(true);
                     editImsVersionButton.setEnabled(true);
@@ -222,7 +222,7 @@ public class MainUI extends JPanel {
         saveChangesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: can this and the create site button share a method?
+                //TODO: Run update site
             }
         });
         /**

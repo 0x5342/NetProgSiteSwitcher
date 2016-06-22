@@ -70,16 +70,13 @@ public class CreateSite extends SwingWorker<Boolean,Object> {
                 Document document = documentBuilder.newDocument();
                 Element rootElement = document.createElement("revs");
                 document.appendChild(rootElement);
-                Element gccChild = document.createElement("rev");
-                gccChild.setAttribute("id","gcc");
+                Element gccChild = document.createElement("gcc");
                 gccChild.appendChild(document.createTextNode(gccVersion));
                 rootElement.appendChild(gccChild);
-                Element imsChild = document.createElement("rev");
-                imsChild.setAttribute("id","ims");
+                Element imsChild = document.createElement("ims");
                 imsChild.appendChild(document.createTextNode(imsVersion));
                 rootElement.appendChild(imsChild);
-                Element tswChild = document.createElement("rev");
-                tswChild.setAttribute("id","tsw");
+                Element tswChild = document.createElement("tsw");
                 tswChild.appendChild(document.createTextNode(tswVersion));
                 rootElement.appendChild(tswChild);
                 // Create and write the file
