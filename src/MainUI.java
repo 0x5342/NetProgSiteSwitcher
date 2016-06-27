@@ -139,7 +139,13 @@ public class MainUI extends JPanel {
                     // If the text field is empty, display a popup
                     JOptionPane.showMessageDialog(null, "Please enter a name for the site.");
                 }else{
-                    runCreateSite();
+                    Path sitePath = Paths.get(siteDirectory+"/"+nameOfCreateSite.getText());
+                    runCreateSite(sitePath,
+                            gccVersionCreate.getText(),
+                            imsVersionCreate.getText(),
+                            tswVersionCreate.getText(),
+                            copySosCheckBoxCreate.isSelected()
+                    );
                 }
             }
         });
@@ -222,9 +228,16 @@ public class MainUI extends JPanel {
         saveChangesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: Run update site
+                runEditOrDeleteSite(
+                        nameOfEditSite.getText(),
+                        gccVersionEdit.getText(),
+                        imsVersionEdit.getText(),
+                        tswVersionEdit.getText(),
+                        copySosCheckBoxEdit.isSelected(),
+                        true);
             }
         });
+        // Edit site tab: delete the selected site
         /**
          * RESTORE SITE TAB
          */
@@ -385,15 +398,14 @@ public class MainUI extends JPanel {
         readSiteRevsFile.execute();
     }
 
-    private void runCreateSite(){
-        CreateSite createSite = new CreateSite(
-                siteDirectory.getText(),
-                nameOfCreateSite.getText(),
-                gccVersionCreate.getText(),
-                imsVersionCreate.getText(),
-                tswVersionCreate.getText(),
-                copySosCheckBoxCreate.isSelected());
+    private void runCreateSite(Path path, String gcc, String ims, String tsw, boolean sos){
+        CreateSite createSite = new CreateSite(path, gcc, ims, tsw, sos);
         createSite.execute();
+    }
+
+    private void runEditOrDeleteSite(String site, String gcc, String ims, String tsw, boolean sos, boolean modify){
+        EditOrDeleteSite editOrDeleteSite = new EditOrDeleteSite(site, gcc, ims, tsw, sos, modify);
+        editOrDeleteSite.execute();
     }
 
     private String verifyPath(JTextField revsDirectory){

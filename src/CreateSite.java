@@ -5,6 +5,7 @@ import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
@@ -18,12 +19,12 @@ import java.nio.file.Paths;
 import java.util.concurrent.ExecutionException;
 
 public class CreateSite extends SwingWorker<Boolean,Object> {
-    private final String siteDirectory, siteName, gccVersion, imsVersion, tswVersion;
+    private final Path sitePath;
+    private final String gccVersion, imsVersion, tswVersion;
     private final boolean sosChecked;
 
-    public CreateSite (String directory, String site, String gcc, String ims, String tsw, boolean sos){
-        siteDirectory = directory;
-        siteName = site;
+    public CreateSite (Path site, String gcc, String ims, String tsw, boolean sos){
+        sitePath = site;
         gccVersion = gcc;
         imsVersion = ims;
         tswVersion = tsw;
@@ -33,8 +34,6 @@ public class CreateSite extends SwingWorker<Boolean,Object> {
     public Boolean doInBackground(){
 
         boolean result = false;
-        // Create a path from the siteDirectory and the site name entered
-        Path sitePath = Paths.get(siteDirectory+"/"+siteName);
         // Check to see if the folder already exists
         if (Files.exists(sitePath)) {
             // If the site already exists, popup a message
@@ -83,6 +82,9 @@ public class CreateSite extends SwingWorker<Boolean,Object> {
                 //TODO: check that the file doesn't exist first
                 TransformerFactory transformerFactory = TransformerFactory.newInstance();
                 Transformer transformer = transformerFactory.newTransformer();
+                transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+                transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+                transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
                 DOMSource source = new DOMSource(document);
                 StreamResult sResult = new StreamResult(new File(sitePath+"/revs_links.xml"));
                 transformer.transform(source,sResult);
@@ -99,6 +101,7 @@ public class CreateSite extends SwingWorker<Boolean,Object> {
 
     protected void done(){
         Boolean success = false;
+        String siteName = sitePath.getFileName().toString();
         try {
             success = get();
         } catch (InterruptedException e) {
