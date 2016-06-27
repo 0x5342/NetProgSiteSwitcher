@@ -55,6 +55,7 @@ public class MainUI extends JPanel {
     private JTextField imsRevsDirectory;
     private JButton changeTSWRevsDirectoryButton;
     private JTextField tswRevsDirectory;
+    private JButton deleteSiteButton;
 
     private static char FILE = 'F';
     private static char DIRECTORY = 'D';
@@ -173,6 +174,7 @@ public class MainUI extends JPanel {
                     editTswVersionButton.setEnabled(true);
                     copySosCheckBoxEdit.setEnabled(true);
                     saveChangesButton.setEnabled(true);
+                    deleteSiteButton.setEnabled(true);
                 }
             }
         });
@@ -238,6 +240,34 @@ public class MainUI extends JPanel {
             }
         });
         // Edit site tab: delete the selected site
+        deleteSiteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int dialogButton = JOptionPane.YES_NO_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog (null, "Are you sure you want to delete this site?",
+                        "Warning",dialogButton);
+                if(dialogResult == JOptionPane.YES_OPTION){
+                    runEditOrDeleteSite(
+                            nameOfEditSite.getText(),
+                            gccVersionEdit.getText(),
+                            imsVersionEdit.getText(),
+                            tswVersionEdit.getText(),
+                            copySosCheckBoxEdit.isSelected(),
+                            false);
+                    nameOfEditSite.setText(null);
+                    gccVersionEdit.setText(null);
+                    imsVersionEdit.setText(null);
+                    tswVersionEdit.setText(null);
+                    copySosCheckBoxEdit.setSelected(true);
+                    editGccVersionButton.setEnabled(false);
+                    editImsVersionButton.setEnabled(false);
+                    editTswVersionButton.setEnabled(false);
+                    copySosCheckBoxEdit.setEnabled(false);
+                    saveChangesButton.setEnabled(false);
+                    deleteSiteButton.setEnabled(false);
+                }
+            }
+        });
         /**
          * RESTORE SITE TAB
          */
@@ -358,6 +388,7 @@ public class MainUI extends JPanel {
                     editTswVersionButton.setEnabled(false);
                     copySosCheckBoxEdit.setEnabled(false);
                     saveChangesButton.setEnabled(false);
+                    deleteSiteButton.setEnabled(false);
                 }else if(tabSelected==restoreSiteTab){
                     //when the tab is selected clear the entry field and disable the restore button
                     siteToRestoreChosen.setText(null);

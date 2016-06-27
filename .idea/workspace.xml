@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5386fa04-d9e3-47c9-9f4c-629e2144eda8" name="Default" comment="Change CreateSite back to single children for each link. Change ReadSiteRevsFile to read this layout.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/DeleteFileOrFolder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EditOrDeleteSite.java" />
+    <list default="true" id="5386fa04-d9e3-47c9-9f4c-629e2144eda8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CreateSite.java" afterPath="$PROJECT_DIR$/src/CreateSite.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainUI.form" afterPath="$PROJECT_DIR$/src/MainUI.form" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainUI.java" afterPath="$PROJECT_DIR$/src/MainUI.java" />
     </list>
     <ignored path="NetworkProgrammerSites.iws" />
@@ -97,8 +95,8 @@
       <file leaf-file-name="MainUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="239" column="50" selection-start-line="239" selection-start-column="50" selection-end-line="239" selection-end-column="50" />
+            <state relative-caret-position="537">
+              <caret line="267" column="0" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -142,7 +140,6 @@
         <option value="$PROJECT_DIR$/src/PopulatePreferences.java" />
         <option value="$PROJECT_DIR$/src/WriteDirectoriesToPreferences.java" />
         <option value="$PROJECT_DIR$/src/NetworkProgrammerSiteSaver.java" />
-        <option value="$PROJECT_DIR$/src/MainUI.form" />
         <option value="$PROJECT_DIR$/src/PopulateDirectoriesFromPreferences.java" />
         <option value="$PROJECT_DIR$/files/preferences.xml" />
         <option value="$PROJECT_DIR$/src/ReadSiteRevsFile.java" />
@@ -150,6 +147,7 @@
         <option value="$PROJECT_DIR$/src/DeleteOrEditSite.java" />
         <option value="$PROJECT_DIR$/src/CreateSite.java" />
         <option value="$PROJECT_DIR$/src/EditOrDeleteSite.java" />
+        <option value="$PROJECT_DIR$/src/MainUI.form" />
         <option value="$PROJECT_DIR$/src/MainUI.java" />
       </list>
     </option>
@@ -206,6 +204,24 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="NetworkProgrammerSites" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NetworkProgrammerSites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NetworkProgrammerSites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MainUI" />
+              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -544,7 +560,14 @@
       <option name="project" value="LOCAL" />
       <updated>1466563112359</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Create EditOrDeleteSite and DeleteFileOrFolder classes to handle modifying or deleting a site.&#10;&#10;Change CreateSite class so that it can be used for either creating a site or modifying a site. Add indents to xml file creation.">
+      <created>1466991887124</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1466991887124</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -589,8 +612,10 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Change CreateSite back to single children for each link. Change ReadSiteRevsFile to read this layout." />
-    <option name="LAST_COMMIT_MESSAGE" value="Change CreateSite back to single children for each link. Change ReadSiteRevsFile to read this layout." />
+    <MESSAGE value="Create EditOrDeleteSite and DeleteFileOrFolder classes to handle modifying or deleting a site.&#10;&#10;Change CreateSite class so that it can be used for either creating a site or modifying a site. Add indents to xml file creation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Create EditOrDeleteSite and DeleteFileOrFolder classes to handle modifying or deleting a site.&#10;&#10;Change CreateSite class so that it can be used for either creating a site or modifying a site. Add indents to xml file creation." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -918,16 +943,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainUI.form">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/files/preferences.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -954,16 +969,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DeleteFileOrFolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CreateSite.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1445">
@@ -980,6 +985,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/DeleteFileOrFolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/EditOrDeleteSite.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -990,10 +1005,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainUI.form">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="239" column="50" selection-start-line="239" selection-start-column="50" selection-end-line="239" selection-end-column="50" />
+        <state relative-caret-position="537">
+          <caret line="267" column="0" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
