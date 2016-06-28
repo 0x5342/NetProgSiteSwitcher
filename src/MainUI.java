@@ -143,13 +143,19 @@ public class MainUI extends JPanel {
                     JOptionPane.showMessageDialog(null, "Please enter a name for the site.");
                 }else{
                     Path sitePath = Paths.get(siteDirectory.getText()+"/"+nameOfCreateSite.getText());
-                    runCreateSite(sitePath,
-                            gccVersionCreate.getText(),
-                            imsVersionCreate.getText(),
-                            tswVersionCreate.getText(),
-                            copySosCheckBoxCreate.isSelected()
-                    );
-                    clearCreateTabFields();
+                    if (Files.exists(sitePath)) {
+                        // If the site already exists, popup a message
+                        JOptionPane.showMessageDialog(null, "That site name already exists.\n" +
+                                "Enter a different name or use the Edit Tab to modify the existing site.");
+                    }else {
+                        runCreateSite(sitePath,
+                                gccVersionCreate.getText(),
+                                imsVersionCreate.getText(),
+                                tswVersionCreate.getText(),
+                                copySosCheckBoxCreate.isSelected()
+                        );
+                        clearCreateTabFields();
+                    }
                 }
             }
         });

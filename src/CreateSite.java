@@ -34,19 +34,12 @@ public class CreateSite extends SwingWorker<Boolean,Object> {
     public Boolean doInBackground(){
 
         boolean result = false;
-        // Check to see if the folder already exists
-        if (Files.exists(sitePath)) {
-            // If the site already exists, popup a message
-            JOptionPane.showMessageDialog(null,"That site name already exists.\n"+
-                    "Enter a different name or use the Edit Tab to modify the existing site.");
-            return false;
-        } else {
-            // The site doesn't already exist, so create a folder with the new site name
-            try {
-                Files.createDirectory(sitePath);
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
+
+        // Create a folder with the new site name
+        try {
+            Files.createDirectory(sitePath);
+        } catch (IOException e1) {
+            e1.printStackTrace();
         }
         // Check to see if the site was created
         if (Files.exists(sitePath)) {
@@ -79,7 +72,6 @@ public class CreateSite extends SwingWorker<Boolean,Object> {
                 tswChild.appendChild(document.createTextNode(tswVersion));
                 rootElement.appendChild(tswChild);
                 // Create and write the file
-                //TODO: check that the file doesn't exist first
                 TransformerFactory transformerFactory = TransformerFactory.newInstance();
                 Transformer transformer = transformerFactory.newTransformer();
                 transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
@@ -93,7 +85,6 @@ public class CreateSite extends SwingWorker<Boolean,Object> {
             } catch (TransformerException e) {
                 e.printStackTrace();
             }
-
             result = true;
         }
         return result;
