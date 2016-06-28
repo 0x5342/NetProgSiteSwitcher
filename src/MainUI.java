@@ -167,24 +167,27 @@ public class MainUI extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String directory = verifyPath(siteDirectory);
+                String editSiteCanonicalPath;
                 NpssFileChooser nFC = new NpssFileChooser();
                 File file = nFC.NpssFileChooser(MainUI.this,directory,DIRECTORY);
                 if(file!=null) {
                     try {
-                        nameOfEditSite.setText(file.getCanonicalPath());
+                        //TODO: This will require changing other areas that were looking to this for a path.
+                        nameOfEditSite.setText(file.getName());
+                        editSiteCanonicalPath = file.getCanonicalPath();
+                        //TODO: Check that it is a recognized site file
+                        runReadSiteRevsFile(editSiteCanonicalPath);
+                        // Enable form buttons once data is read in
+                        editGccVersionButton.setEnabled(true);
+                        editImsVersionButton.setEnabled(true);
+                        editTswVersionButton.setEnabled(true);
+                        copySosCheckBoxEdit.setEnabled(true);
+                        saveChangesButton.setEnabled(true);
+                        deleteSiteButton.setEnabled(true);
+                        renameSiteButton.setEnabled(true);
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
-                    //TODO: Check that it is a recognized site file
-                    runReadSiteRevsFile(nameOfEditSite.getText());
-                    // Enable form buttons once data is read in
-                    editGccVersionButton.setEnabled(true);
-                    editImsVersionButton.setEnabled(true);
-                    editTswVersionButton.setEnabled(true);
-                    copySosCheckBoxEdit.setEnabled(true);
-                    saveChangesButton.setEnabled(true);
-                    deleteSiteButton.setEnabled(true);
-                    renameSiteButton.setEnabled(true);
                 }
             }
         });
@@ -241,7 +244,7 @@ public class MainUI extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 runEditOrDeleteSite(
-                        nameOfEditSite.getText(),
+                        siteDirectory.getText()+"/"+nameOfEditSite.getText(),
                         siteDirectory.getText()+"/"+renameSiteNewName.getText(),
                         gccVersionEdit.getText(),
                         imsVersionEdit.getText(),
@@ -256,6 +259,8 @@ public class MainUI extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 renameSiteNewName.setEnabled(true);
+                renameSiteNewName.setEditable(true);
+                renameSiteNewName.setText(nameOfEditSite.getText());
                 renameSiteNewName.requestFocusInWindow();
             }
         });
@@ -268,7 +273,7 @@ public class MainUI extends JPanel {
                         "Warning",dialogButton);
                 if(dialogResult == JOptionPane.YES_OPTION){
                     runEditOrDeleteSite(
-                            nameOfEditSite.getText(),
+                            siteDirectory.getText()+"/"+nameOfEditSite.getText(),
                             renameSiteNewName.getText(),
                             gccVersionEdit.getText(),
                             imsVersionEdit.getText(),
@@ -463,6 +468,7 @@ public class MainUI extends JPanel {
         deleteSiteButton.setEnabled(false);
         renameSiteButton.setEnabled(false);
         renameSiteNewName.setText(null);
+        renameSiteNewName.setEditable(false);
         renameSiteNewName.setEnabled(false);
     }
 
