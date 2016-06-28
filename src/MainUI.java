@@ -56,6 +56,8 @@ public class MainUI extends JPanel {
     private JButton changeTSWRevsDirectoryButton;
     private JTextField tswRevsDirectory;
     private JButton deleteSiteButton;
+    private JButton renameSiteButton;
+    private JTextField renameSiteNewName;
 
     private static char FILE = 'F';
     private static char DIRECTORY = 'D';
@@ -140,20 +142,20 @@ public class MainUI extends JPanel {
                     // If the text field is empty, display a popup
                     JOptionPane.showMessageDialog(null, "Please enter a name for the site.");
                 }else{
-                    Path sitePath = Paths.get(siteDirectory+"/"+nameOfCreateSite.getText());
+                    Path sitePath = Paths.get(siteDirectory.getText()+"/"+nameOfCreateSite.getText());
                     runCreateSite(sitePath,
                             gccVersionCreate.getText(),
                             imsVersionCreate.getText(),
                             tswVersionCreate.getText(),
                             copySosCheckBoxCreate.isSelected()
                     );
+                    clearCreateTabFields();
                 }
             }
         });
         /**
          * EDIT SITE TAB
          */
-        //TODO: Add a way to change the site name
         // Edit site tab: choose the site to edit
         siteToEditButton.addActionListener(new ActionListener() {
             @Override
@@ -169,12 +171,14 @@ public class MainUI extends JPanel {
                     }
                     //TODO: Check that it is a recognized site file
                     runReadSiteRevsFile(nameOfEditSite.getText());
+                    // Enable form buttons once data is read in
                     editGccVersionButton.setEnabled(true);
                     editImsVersionButton.setEnabled(true);
                     editTswVersionButton.setEnabled(true);
                     copySosCheckBoxEdit.setEnabled(true);
                     saveChangesButton.setEnabled(true);
                     deleteSiteButton.setEnabled(true);
+                    renameSiteButton.setEnabled(true);
                 }
             }
         });
@@ -232,11 +236,21 @@ public class MainUI extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 runEditOrDeleteSite(
                         nameOfEditSite.getText(),
+                        siteDirectory.getText()+"/"+renameSiteNewName.getText(),
                         gccVersionEdit.getText(),
                         imsVersionEdit.getText(),
                         tswVersionEdit.getText(),
                         copySosCheckBoxEdit.isSelected(),
                         true);
+                clearEditTabFields();
+            }
+        });
+        // Edit site tab: rename the selected site
+        renameSiteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                renameSiteNewName.setEnabled(true);
+                renameSiteNewName.requestFocusInWindow();
             }
         });
         // Edit site tab: delete the selected site
@@ -249,22 +263,13 @@ public class MainUI extends JPanel {
                 if(dialogResult == JOptionPane.YES_OPTION){
                     runEditOrDeleteSite(
                             nameOfEditSite.getText(),
+                            renameSiteNewName.getText(),
                             gccVersionEdit.getText(),
                             imsVersionEdit.getText(),
                             tswVersionEdit.getText(),
                             copySosCheckBoxEdit.isSelected(),
                             false);
-                    nameOfEditSite.setText(null);
-                    gccVersionEdit.setText(null);
-                    imsVersionEdit.setText(null);
-                    tswVersionEdit.setText(null);
-                    copySosCheckBoxEdit.setSelected(true);
-                    editGccVersionButton.setEnabled(false);
-                    editImsVersionButton.setEnabled(false);
-                    editTswVersionButton.setEnabled(false);
-                    copySosCheckBoxEdit.setEnabled(false);
-                    saveChangesButton.setEnabled(false);
-                    deleteSiteButton.setEnabled(false);
+                    clearEditTabFields();
                 }
             }
         });
@@ -371,28 +376,13 @@ public class MainUI extends JPanel {
                 Component tabSelected = tabbedPane.getSelectedComponent();
                 if(tabSelected==createSiteTab){
                     //when the tab is selected clear the entry fields and check box
-                    nameOfCreateSite.setText(null);
-                    gccVersionCreate.setText(null);
-                    imsVersionCreate.setText(null);
-                    tswVersionCreate.setText(null);
-                    copySosCheckBoxCreate.setSelected(true);
+                    clearCreateTabFields();
                 }else if(tabSelected==editSiteTab){
                     //when the tab is selected clear the entry fields and check box and disable buttons
-                    nameOfEditSite.setText(null);
-                    gccVersionEdit.setText(null);
-                    imsVersionEdit.setText(null);
-                    tswVersionEdit.setText(null);
-                    copySosCheckBoxEdit.setSelected(true);
-                    editGccVersionButton.setEnabled(false);
-                    editImsVersionButton.setEnabled(false);
-                    editTswVersionButton.setEnabled(false);
-                    copySosCheckBoxEdit.setEnabled(false);
-                    saveChangesButton.setEnabled(false);
-                    deleteSiteButton.setEnabled(false);
+                    clearEditTabFields();
                 }else if(tabSelected==restoreSiteTab){
                     //when the tab is selected clear the entry field and disable the restore button
-                    siteToRestoreChosen.setText(null);
-                    restoreSiteButton.setEnabled(false);
+                    clearRestoreTabFields();
                 }else if(tabSelected==directoriesTab){
                     //when the tab is selected populate fields from preferences file
                     runPopulateDirectoriesFromPreferences();
@@ -434,9 +424,45 @@ public class MainUI extends JPanel {
         createSite.execute();
     }
 
-    private void runEditOrDeleteSite(String site, String gcc, String ims, String tsw, boolean sos, boolean modify){
-        EditOrDeleteSite editOrDeleteSite = new EditOrDeleteSite(site, gcc, ims, tsw, sos, modify);
-        editOrDeleteSite.execute();
+    private void runEditOrDeleteSite(String oldSite, String newSite,
+                                     String gcc, String ims, String tsw, boolean sos, boolean modify){
+        if(newSite.isEmpty()) {
+            EditOrDeleteSite editOrDeleteSite = new EditOrDeleteSite(oldSite, gcc, ims, tsw, sos, modify);
+            editOrDeleteSite.execute();
+        } else {
+            EditOrDeleteSite editOrDeleteSite = new EditOrDeleteSite(oldSite, newSite, gcc, ims, tsw, sos, modify);
+            editOrDeleteSite.execute();
+        }
+    }
+
+    private void clearCreateTabFields(){
+        nameOfCreateSite.setText(null);
+        gccVersionCreate.setText(null);
+        imsVersionCreate.setText(null);
+        tswVersionCreate.setText(null);
+        copySosCheckBoxCreate.setSelected(true);
+    }
+
+    private void clearEditTabFields(){
+        nameOfEditSite.setText(null);
+        gccVersionEdit.setText(null);
+        imsVersionEdit.setText(null);
+        tswVersionEdit.setText(null);
+        copySosCheckBoxEdit.setSelected(true);
+        editGccVersionButton.setEnabled(false);
+        editImsVersionButton.setEnabled(false);
+        editTswVersionButton.setEnabled(false);
+        copySosCheckBoxEdit.setEnabled(false);
+        saveChangesButton.setEnabled(false);
+        deleteSiteButton.setEnabled(false);
+        renameSiteButton.setEnabled(false);
+        renameSiteNewName.setText(null);
+        renameSiteNewName.setEnabled(false);
+    }
+
+    private void clearRestoreTabFields(){
+        siteToRestoreChosen.setText(null);
+        restoreSiteButton.setEnabled(false);
     }
 
     private String verifyPath(JTextField revsDirectory){

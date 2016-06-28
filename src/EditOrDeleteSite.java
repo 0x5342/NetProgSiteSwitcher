@@ -4,11 +4,26 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class EditOrDeleteSite extends SwingWorker<Boolean,Object> {
-    private final String sitePathName, gccVersion, imsVersion, tswVersion;
+    private final String oldSitePathName, newSitePathName, gccVersion, imsVersion, tswVersion;
     private final boolean toModify, sosChecked;
 
-    public EditOrDeleteSite(String site, String gcc, String ims, String tsw, boolean sos, boolean modify){
-        sitePathName = site;
+    // This constructor is used when changing data other than the site name or deleting the site.
+    // The newSitePathName is set to the same as the oldSitePathName since the name is not changing.
+    public EditOrDeleteSite(String oldSite, String gcc, String ims, String tsw, boolean sos, boolean modify){
+        oldSitePathName = oldSite;
+        newSitePathName = oldSite;
+        gccVersion = gcc;
+        imsVersion = ims;
+        tswVersion = tsw;
+        sosChecked = sos;
+        toModify = modify;
+    }
+
+    // This constructor is used when renaming a site
+    public EditOrDeleteSite (String oldSite, String newSite,
+                             String gcc, String ims, String tsw, boolean sos, boolean modify){
+        oldSitePathName = oldSite;
+        newSitePathName = newSite;
         gccVersion = gcc;
         imsVersion = ims;
         tswVersion = tsw;
@@ -17,12 +32,13 @@ public class EditOrDeleteSite extends SwingWorker<Boolean,Object> {
     }
 
     public Boolean doInBackground(){
-        Path sitePath = Paths.get(sitePathName);
+        Path oldSitePath = Paths.get(oldSitePathName);
+        Path newSitePath = Paths.get(newSitePathName);
         // Check to see if the folder already exists
-        if (Files.exists(sitePath)) {
-            new DeleteFileOrFolder(sitePath);
+        if (Files.exists(oldSitePath)) {
+            new DeleteFileOrFolder(oldSitePath);
             if (toModify){
-                CreateSite createSite = new CreateSite(sitePath, gccVersion, imsVersion, tswVersion, sosChecked);
+                CreateSite createSite = new CreateSite(newSitePath, gccVersion, imsVersion, tswVersion, sosChecked);
                 createSite.execute();
             }
         }
