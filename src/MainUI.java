@@ -172,7 +172,6 @@ public class MainUI extends JPanel {
                 File file = nFC.NpssFileChooser(MainUI.this,directory,DIRECTORY);
                 if(file!=null) {
                     try {
-                        //TODO: This will require changing other areas that were looking to this for a path.
                         nameOfEditSite.setText(file.getName());
                         editSiteCanonicalPath = file.getCanonicalPath();
                         //TODO: Check that it is a recognized site file

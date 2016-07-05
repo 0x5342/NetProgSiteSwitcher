@@ -34,6 +34,7 @@ public class EditOrDeleteSite extends SwingWorker<Boolean,Object> {
     public Boolean doInBackground(){
         Path oldSitePath = Paths.get(oldSitePathName);
         Path newSitePath = Paths.get(newSitePathName);
+        //TODO: if there is an sos file and the copy new sos is not checked, keep the old sos file
         // Check to see if the folder already exists
         if (Files.exists(oldSitePath)) {
             new DeleteFileOrFolder(oldSitePath);
