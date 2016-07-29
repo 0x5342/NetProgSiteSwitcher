@@ -14,7 +14,8 @@ import java.util.concurrent.ExecutionException;
 public class ReadSiteRevsFile extends SwingWorker<String[],Object>{
     private String[] revs = new String[4];
     private String sitePath;
-    private final JTextField gccTextField, imsTextField, tswTextField;
+    private JTextField gccTextField=null, imsTextField=null, tswTextField=null;
+    private boolean restore;
     private static int GCC = 1;
     private static int IMS = 2;
     private static int TSW = 3;
@@ -24,6 +25,12 @@ public class ReadSiteRevsFile extends SwingWorker<String[],Object>{
         gccTextField = gcc;
         imsTextField = ims;
         tswTextField = tsw;
+        restore = false;
+    }
+
+    public ReadSiteRevsFile(String site){
+        sitePath = site;
+        restore = true;
     }
 
     public String[] doInBackground() {
@@ -88,9 +95,15 @@ public class ReadSiteRevsFile extends SwingWorker<String[],Object>{
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        gccTextField.setText(result[GCC]);
-        imsTextField.setText(result[IMS]);
-        tswTextField.setText(result[TSW]);
+        if(!restore) {
+            gccTextField.setText(result[GCC]);
+            imsTextField.setText(result[IMS]);
+            tswTextField.setText(result[TSW]);
+        } else if(restore){
+            RestoreSite restoreSite = new RestoreSite(sitePath,result[GCC],result[IMS],result[TSW]);
+            restoreSite.restore();
+            //TODO: execute the restoral
+        }
     }
 }
 

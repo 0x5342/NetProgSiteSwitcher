@@ -300,13 +300,15 @@ public class MainUI extends JPanel {
                         e1.printStackTrace();
                     }
                 }
+                restoreSiteButton.setEnabled(true);
             }
         });
         // Restore site tab: run each selected Rev file and then copy the sos.ini back into C:\Windows
         restoreSiteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: add code
+                ReadSiteRevsFile readSiteRevsFile = new ReadSiteRevsFile(siteToRestoreChosen.getText());
+                readSiteRevsFile.execute();
             }
         });
         /**
