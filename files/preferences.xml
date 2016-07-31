@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<preferences>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><preferences>
     <directories>
         <directory id="site">
-            <location>C:\Users\sbrown\Desktop\SiteSaverTest</location>
+            <location>C:\Users\sbrown\Desktop\SiteSaverTest\files</location>
         </directory>
         <directory id="gcc">
-            <location>C:\Users\sbrown\Desktop\SiteSaverTest\GCC REVS</location>
+            <location>C:\Users\sbrown\Desktop\SiteSaverTest\GCCREVS</location>
         </directory>
         <directory id="ims">
-            <location>C:\Users\sbrown\Desktop\SiteSaverTest\IMS REVS</location>
+            <location>C:\Users\sbrown\Desktop\SiteSaverTest\IMSREVS</location>
         </directory>
         <directory id="tsw">
             <location>C:\Users\sbrown\Desktop\SiteSaverTest\TSW\GCCREVS</location>

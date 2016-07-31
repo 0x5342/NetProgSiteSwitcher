@@ -9,6 +9,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.concurrent.ExecutionException;
 
 public class ReadSiteRevsFile extends SwingWorker<String[],Object>{
@@ -101,7 +102,13 @@ public class ReadSiteRevsFile extends SwingWorker<String[],Object>{
             tswTextField.setText(result[TSW]);
         } else if(restore){
             RestoreSite restoreSite = new RestoreSite(sitePath,result[GCC],result[IMS],result[TSW]);
-            restoreSite.restore();
+            try {
+                restoreSite.restore();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             //TODO: execute the restoral
         }
     }
