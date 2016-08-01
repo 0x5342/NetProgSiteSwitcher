@@ -102,10 +102,10 @@ public class CreateSite extends SwingWorker<Boolean,Object> {
         }
         if (success){
             // Site was created
-            JOptionPane.showMessageDialog(null,siteName+" was created!");
+            JOptionPane.showMessageDialog(null,siteName+" was created or modified!");
         }else {
             // Site creation failed
-            JOptionPane.showMessageDialog(null,"Creation of the site, "+siteName+", failed!");
+            JOptionPane.showMessageDialog(null,"Creation or modification of the site, "+siteName+", failed!");
             //TODO: Delete the new site directory if creation fails?
         }
     }

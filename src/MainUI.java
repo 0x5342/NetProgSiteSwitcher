@@ -242,9 +242,11 @@ public class MainUI extends JPanel {
         saveChangesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String newSite=(renameSiteNewName.getText().isEmpty())?renameSiteNewName.getText():
+                        siteDirectory.getText()+"\\"+renameSiteNewName.getText();
                 runEditOrDeleteSite(
-                        siteDirectory.getText()+"/"+nameOfEditSite.getText(),
-                        siteDirectory.getText()+"/"+renameSiteNewName.getText(),
+                        siteDirectory.getText()+"\\"+nameOfEditSite.getText(),
+                        newSite,
                         gccVersionEdit.getText(),
                         imsVersionEdit.getText(),
                         tswVersionEdit.getText(),
