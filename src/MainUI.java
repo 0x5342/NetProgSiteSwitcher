@@ -58,6 +58,13 @@ public class MainUI extends JPanel {
     private JButton deleteSiteButton;
     private JButton renameSiteButton;
     private JTextField renameSiteNewName;
+    private JButton editSiteRenameClearButton;
+    private JButton editSiteGccClearButton;
+    private JButton editSiteImsClearButton;
+    private JButton editSiteTswClearButton;
+    private JButton createSiteGccClearButton;
+    private JButton createSiteImsClearButton;
+    private JButton createSiteTswClearButton;
 
     private static char FILE = 'F';
     private static char DIRECTORY = 'D';
@@ -99,6 +106,12 @@ public class MainUI extends JPanel {
                 }
             }
         });
+        createSiteGccClearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gccVersionCreate.setText("");
+            }
+        });
         // Create site tab: choose the IMS version of software
         chooseIMSVersionButton.addActionListener(new ActionListener() {
             @Override
@@ -116,6 +129,12 @@ public class MainUI extends JPanel {
                 }
             }
         });
+        createSiteImsClearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                imsVersionCreate.setText("");
+            }
+        });
         // Create site tab: choose the TSW version of software
         chooseTSWVersionButton.addActionListener(new ActionListener() {
             @Override
@@ -131,6 +150,12 @@ public class MainUI extends JPanel {
                         e1.printStackTrace();
                     }
                 }
+            }
+        });
+        createSiteTswClearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tswVersionCreate.setText("");
             }
         });
         // Create site tab: create the new site with the selected options
@@ -184,10 +209,23 @@ public class MainUI extends JPanel {
                         saveChangesButton.setEnabled(true);
                         deleteSiteButton.setEnabled(true);
                         renameSiteButton.setEnabled(true);
+                        editSiteRenameClearButton.setEnabled(true);
+                        editSiteGccClearButton.setEnabled(true);
+                        editSiteImsClearButton.setEnabled(true);
+                        editSiteTswClearButton.setEnabled(true);
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
                 }
+            }
+        });
+        // Edit site tab: clear the site rename field
+        editSiteRenameClearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                renameSiteNewName.setText("");
+                renameSiteNewName.setEnabled(false);
+                renameSiteNewName.setEditable(false);
             }
         });
         // Edit site tab: choose the GCC version of software
@@ -206,6 +244,12 @@ public class MainUI extends JPanel {
                 }
             }
         });
+        editSiteGccClearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gccVersionEdit.setText("");
+            }
+        });
         // Edit site tab: choose the IMS version of software
         editImsVersionButton.addActionListener(new ActionListener() {
             @Override
@@ -222,6 +266,12 @@ public class MainUI extends JPanel {
                 }
             }
         });
+        editSiteImsClearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                imsVersionEdit.setText("");
+            }
+        });
         // Edit site tab: choose the TSW version of software
         editTswVersionButton.addActionListener(new ActionListener() {
             @Override
@@ -236,6 +286,12 @@ public class MainUI extends JPanel {
                         e1.printStackTrace();
                     }
                 }
+            }
+        });
+        editSiteTswClearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tswVersionEdit.setText("");
             }
         });
         // Edit site tab: update the site with the changed information
@@ -473,6 +529,10 @@ public class MainUI extends JPanel {
         renameSiteNewName.setText(null);
         renameSiteNewName.setEditable(false);
         renameSiteNewName.setEnabled(false);
+        editSiteRenameClearButton.setEnabled(false);
+        editSiteGccClearButton.setEnabled(false);
+        editSiteImsClearButton.setEnabled(false);
+        editSiteTswClearButton.setEnabled(false);
     }
 
     private void clearRestoreTabFields(){
