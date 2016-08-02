@@ -25,7 +25,7 @@ public class RestoreSite {
             if(windowsShortcut.isPotentialValidLink(gccShortcut)) {
                 gccVersion = windowsShortcut.getRealFilename().toString();
                 try {
-                    Process p = Runtime.getRuntime().exec("cmd /c start " + gccVersion);
+                    Process p = Runtime.getRuntime().exec("cmd /c start /wait " + gccVersion);
                     p.waitFor();
 
                 } catch (IOException ex) {
@@ -45,7 +45,7 @@ public class RestoreSite {
             if(windowsShortcut.isPotentialValidLink(imsShortcut)) {
                 imsVersion = windowsShortcut.getRealFilename().toString();
                 try {
-                    Process p = Runtime.getRuntime().exec("cmd /c start " + imsVersion);
+                    Process p = Runtime.getRuntime().exec("cmd /c start /wait " + imsVersion);
                     p.waitFor();
 
                 } catch (IOException ex) {
@@ -65,7 +65,7 @@ public class RestoreSite {
             if(windowsShortcut.isPotentialValidLink(tswShortcut)) {
                 tswVersion = windowsShortcut.getRealFilename().toString();
                 try {
-                    Process p = Runtime.getRuntime().exec("cmd /c start " + tswVersion);
+                    Process p = Runtime.getRuntime().exec("cmd /c start /wait " + tswVersion);
                     p.waitFor();
 
                 } catch (IOException ex) {
@@ -78,7 +78,7 @@ public class RestoreSite {
             }
         }
 
-        Path src = Paths.get(sitePath+"sos.ini");
+        Path src = Paths.get(sitePath+"/sos.ini");
         if (Files.exists(src)) {
             Path dst = Paths.get("C:/Windows/sos.ini");
             try {

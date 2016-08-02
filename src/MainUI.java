@@ -367,6 +367,7 @@ public class MainUI extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 ReadSiteRevsFile readSiteRevsFile = new ReadSiteRevsFile(siteToRestoreChosen.getText());
                 readSiteRevsFile.execute();
+                siteToRestoreChosen.setText("");
             }
         });
         /**
