@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -6,6 +7,7 @@ import java.nio.file.Paths;
 public class EditOrDeleteSite extends SwingWorker<Boolean,Object> {
     private final String oldSitePathName, newSitePathName, gccVersion, imsVersion, tswVersion;
     private final boolean toModify, sosChecked;
+    private boolean copyTempSos;
 
     // This constructor is used when changing data other than the site name or deleting the site.
     // The newSitePathName is set to the same as the oldSitePathName since the name is not changing.
@@ -34,13 +36,41 @@ public class EditOrDeleteSite extends SwingWorker<Boolean,Object> {
     public Boolean doInBackground(){
         Path oldSitePath = Paths.get(oldSitePathName);
         Path newSitePath = Paths.get(newSitePathName);
+        Path tempDestination = null;
         //TODO: if there is an sos file and the copy new sos is not checked, keep the old sos file
+        if(!sosChecked){
+            Path oldSiteSosPath = Paths.get(oldSitePathName+"/sos.ini");
+            if (Files.exists(oldSiteSosPath)){
+                tempDestination = Paths.get("c:/sos.temp");
+                try {
+                    Files.copy(oldSiteSosPath,tempDestination);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                copyTempSos = true;
+            }
+        }
         // Check to see if the folder already exists
         if (Files.exists(oldSitePath)) {
             new DeleteFileOrFolder(oldSitePath);
             if (toModify){
                 CreateSite createSite = new CreateSite(newSitePath, gccVersion, imsVersion, tswVersion, sosChecked);
                 createSite.execute();
+                if(copyTempSos) {
+                    Path newSiteSosPath = Paths.get(newSitePath+"/sos.ini");
+                    //Pause for 1 seconds
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        Files.copy(tempDestination,newSiteSosPath);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    new DeleteFileOrFolder(tempDestination);
+                }
             }
         }
             return true;
