@@ -23,6 +23,16 @@ public class CreateSite extends SwingWorker<Boolean,Object> {
     private final String gccVersion, imsVersion, tswVersion;
     private final boolean sosChecked;
 
+    /**
+     * This will create a site by creating a folder with the site name, copying the sos.ini (if option is checked)
+     * from C:/Windows/ to the newly created site folder, and then creating an xml file listing the paths to
+     * each GCC, IMS, and TSW version switching shortcut
+     * @param site a path for the new site
+     * @param gcc a string representing the path to the GCC version shortcut
+     * @param ims a string representing the path to the IMS version shortcut
+     * @param tsw a string representing the path to the TSW version shortcut
+     * @param sos TRUE if a copy of the sos.ini file is to be made into the site folder
+     */
     public CreateSite (Path site, String gcc, String ims, String tsw, boolean sos){
         sitePath = site;
         gccVersion = gcc;
