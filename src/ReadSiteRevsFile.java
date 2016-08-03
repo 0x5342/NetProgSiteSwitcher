@@ -9,6 +9,9 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.ParseException;
 import java.util.concurrent.ExecutionException;
 
@@ -46,54 +49,64 @@ public class ReadSiteRevsFile extends SwingWorker<String[],Object>{
     }
 
     public String[] doInBackground() {
-
-        try{
-            //TODO: Check if revs_links.xml exists before even trying to parse
-            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-            Document document = documentBuilder.parse(sitePath+"/revs_links.xml");
-            //Normalize the XML structure
-            document.getDocumentElement().normalize();
-            //Get all directories nodes
-            Node revsNode = document.getFirstChild();
-            NodeList nodeList = revsNode.getChildNodes();
-            for (int i = 0; i < nodeList.getLength(); i++) {
-                Node subNode = nodeList.item(i);
-                if(subNode.getNodeType()==Node.ELEMENT_NODE){
-                    if(subNode.getNodeName().equals("gcc")){
-                        if(subNode.hasChildNodes()){
-                            Node subNodeChild = subNode.getFirstChild();
-                            if(subNodeChild.getNodeType()==Node.TEXT_NODE){
-                                revs[GCC]=subNodeChild.getNodeValue();
+        Path sp = Paths.get(sitePath+"/revs_links.xml");
+        if (Files.exists(sp)) {
+            try {
+                DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+                DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+                Document document = documentBuilder.parse(sitePath + "/revs_links.xml");
+                //Normalize the XML structure
+                document.getDocumentElement().normalize();
+                //Get all directories nodes
+                Node revsNode = document.getFirstChild();
+                NodeList nodeList = revsNode.getChildNodes();
+                for (int i = 0; i < nodeList.getLength(); i++) {
+                    Node subNode = nodeList.item(i);
+                    if (subNode.getNodeType() == Node.ELEMENT_NODE) {
+                        if (subNode.getNodeName().equals("gcc")) {
+                            if (subNode.hasChildNodes()) {
+                                Node subNodeChild = subNode.getFirstChild();
+                                if (subNodeChild.getNodeType() == Node.TEXT_NODE) {
+                                    revs[GCC] = subNodeChild.getNodeValue();
+                                }
                             }
                         }
-                    }
-                    if(subNode.getNodeName().equals("ims")){
-                        if(subNode.hasChildNodes()){
-                            Node subNodeChild = subNode.getFirstChild();
-                            if(subNodeChild.getNodeType()==Node.TEXT_NODE){
-                                revs[IMS]=subNodeChild.getNodeValue();
+                        if (subNode.getNodeName().equals("ims")) {
+                            if (subNode.hasChildNodes()) {
+                                Node subNodeChild = subNode.getFirstChild();
+                                if (subNodeChild.getNodeType() == Node.TEXT_NODE) {
+                                    revs[IMS] = subNodeChild.getNodeValue();
+                                }
                             }
                         }
-                    }
-                    if(subNode.getNodeName().equals("tsw")){
-                        if(subNode.hasChildNodes()){
-                            Node subNodeChild = subNode.getFirstChild();
-                            if(subNodeChild.getNodeType()==Node.TEXT_NODE){
-                                revs[TSW]=subNodeChild.getNodeValue();
+                        if (subNode.getNodeName().equals("tsw")) {
+                            if (subNode.hasChildNodes()) {
+                                Node subNodeChild = subNode.getFirstChild();
+                                if (subNodeChild.getNodeType() == Node.TEXT_NODE) {
+                                    revs[TSW] = subNodeChild.getNodeValue();
+                                }
                             }
                         }
                     }
                 }
+            } catch (ParserConfigurationException e) {
+                e.printStackTrace();
+            } catch (SAXException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "No existing link file was found in the site folder.\n" +
+                        "Just choose \"Create Site\" if no GCC, IMS, or TSW is on this network.\n" +
+                        "Otherwise, choose links to add to the site or delete the site.");
+                // Since the xml file does not exist, set the result array strings to ""
+                revs[GCC] = "";
+                revs[IMS] = "";
+                revs[TSW] = "";
+                return revs;
             }
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "No existing link file was found in the site folder.\n"+
-                    "Just choose \"Create Site\" if no GCC, IMS, or TSW is on this network.\n"+
-                    "Otherwise, choose links to add to the site or delete the site.");
+        } else {
+            revs[GCC] = "";
+            revs[IMS] = "";
+            revs[TSW] = "";
         }
         return revs;
     }
