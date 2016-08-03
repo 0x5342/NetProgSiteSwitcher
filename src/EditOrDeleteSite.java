@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 public class EditOrDeleteSite extends SwingWorker<Boolean,Object> {
     private final String oldSitePathName, newSitePathName, gccVersion, imsVersion, tswVersion;
@@ -43,7 +44,7 @@ public class EditOrDeleteSite extends SwingWorker<Boolean,Object> {
             if (Files.exists(oldSiteSosPath)){
                 tempDestination = Paths.get("c:/sos.temp");
                 try {
-                    Files.copy(oldSiteSosPath,tempDestination);
+                    Files.copy(oldSiteSosPath,tempDestination,StandardCopyOption.REPLACE_EXISTING);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -65,7 +66,7 @@ public class EditOrDeleteSite extends SwingWorker<Boolean,Object> {
                         e.printStackTrace();
                     }
                     try {
-                        Files.copy(tempDestination,newSiteSosPath);
+                        Files.copy(tempDestination,newSiteSosPath, StandardCopyOption.REPLACE_EXISTING);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
