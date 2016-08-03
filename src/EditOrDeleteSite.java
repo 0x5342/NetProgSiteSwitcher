@@ -10,8 +10,16 @@ public class EditOrDeleteSite extends SwingWorker<Boolean,Object> {
     private final boolean toModify, sosChecked;
     private boolean copyTempSos;
 
-    // This constructor is used when changing data other than the site name or deleting the site.
-    // The newSitePathName is set to the same as the oldSitePathName since the name is not changing.
+    /**
+     * This constructor is used when changing data other than the site name or deleting the site.
+     * The newSitePathName is set to the same as the oldSitePathName since the name is not changing.
+     * @param oldSite a string representing the path to the site that is being edited
+     * @param gcc a string representing the path to the GCC version shortcut
+     * @param ims a string representing the path to the IMS version shortcut
+     * @param tsw a string representing the path to the TSW version shortcut
+     * @param sos TRUE if a new copy of the sos.ini file is to be made. FALSE if the sos.ini should be let be.
+     * @param modify TRUE if this site is being modified. FALSE if the site to just be deleted.
+     */
     public EditOrDeleteSite(String oldSite, String gcc, String ims, String tsw, boolean sos, boolean modify){
         oldSitePathName = oldSite;
         newSitePathName = oldSite;
@@ -22,7 +30,16 @@ public class EditOrDeleteSite extends SwingWorker<Boolean,Object> {
         toModify = modify;
     }
 
-    // This constructor is used when renaming a site
+    /**
+     * This constructor is used when renaming a site along with any other modifications.
+     * @param oldSite a string representing the path to the site that is being edited
+     * @param newSite a string representing the path to the site that is being edited with its new name
+     * @param gcc a string representing the path to the GCC version shortcut
+     * @param ims a string representing the path to the IMS version shortcut
+     * @param tsw a string representing the path to the TSW version shortcut
+     * @param sos TRUE if a new copy of the sos.ini file is to be made. FALSE if the sos.ini should be let be.
+     * @param modify TRUE if this site is being modified. FALSE if the site to just be deleted.
+     */
     public EditOrDeleteSite (String oldSite, String newSite,
                              String gcc, String ims, String tsw, boolean sos, boolean modify){
         oldSitePathName = oldSite;
@@ -38,25 +55,31 @@ public class EditOrDeleteSite extends SwingWorker<Boolean,Object> {
         Path oldSitePath = Paths.get(oldSitePathName);
         Path newSitePath = Paths.get(newSitePathName);
         Path tempDestination = null;
-        //TODO: if there is an sos file and the copy new sos is not checked, keep the old sos file
-        if(!sosChecked){
+        // If copy new sos is not checked and the site is being modified...
+        if(!sosChecked&&toModify){
             Path oldSiteSosPath = Paths.get(oldSitePathName+"/sos.ini");
+            // and a sos.ini file does exist in the site folder...
             if (Files.exists(oldSiteSosPath)){
                 tempDestination = Paths.get("c:/sos.temp");
                 try {
+                    // make a temporary copy of the sos.ini file to be brought back after the other changes
                     Files.copy(oldSiteSosPath,tempDestination,StandardCopyOption.REPLACE_EXISTING);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                // This boolean is set to know that a temp copy is to be put back after the other changes
                 copyTempSos = true;
             }
         }
-        // Check to see if the folder already exists
+        // Check to see if the site folder already exists
         if (Files.exists(oldSitePath)) {
+            // Delete the old site folder and its contents
             new DeleteFileOrFolder(oldSitePath);
+            // If this is a site modification, create the site with the modifications
             if (toModify){
                 CreateSite createSite = new CreateSite(newSitePath, gccVersion, imsVersion, tswVersion, sosChecked);
                 createSite.execute();
+                // If a temporary copy of the sos.ini was made, copy it back into the modified site folder
                 if(copyTempSos) {
                     Path newSiteSosPath = Paths.get(newSitePath+"/sos.ini");
                     //Pause for 1 seconds
@@ -70,6 +93,7 @@ public class EditOrDeleteSite extends SwingWorker<Boolean,Object> {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                    // Delete the temporary copy of the sos.ini file
                     new DeleteFileOrFolder(tempDestination);
                 }
             }

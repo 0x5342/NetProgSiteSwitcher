@@ -8,7 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5386fa04-d9e3-47c9-9f4c-629e2144eda8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RestoreSite.java" afterPath="$PROJECT_DIR$/src/RestoreSite.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EditOrDeleteSite.java" afterPath="$PROJECT_DIR$/src/EditOrDeleteSite.java" />
     </list>
     <ignored path="NetworkProgrammerSites.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,17 +39,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EditOrDeleteSite.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EditOrDeleteSite.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EditOrDeleteSite.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="46" column="97" selection-start-line="46" selection-start-column="97" selection-end-line="46" selection-end-column="97" />
+            <state relative-caret-position="476">
+              <caret line="33" column="87" selection-start-line="33" selection-start-column="87" selection-end-line="33" selection-end-column="87" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RestoreSite.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RestoreSite.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RestoreSite.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
@@ -62,7 +62,7 @@
       <file leaf-file-name="SiteManipulator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SiteManipulator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
+            <state relative-caret-position="-985">
               <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
               <folding>
                 <element signature="e#2113#2114#0" expanded="true" />
@@ -128,8 +128,8 @@
         <option value="$PROJECT_DIR$/src/CreateSite.java" />
         <option value="$PROJECT_DIR$/src/MainUI.form" />
         <option value="$PROJECT_DIR$/src/MainUI.java" />
-        <option value="$PROJECT_DIR$/src/EditOrDeleteSite.java" />
         <option value="$PROJECT_DIR$/src/RestoreSite.java" />
+        <option value="$PROJECT_DIR$/src/EditOrDeleteSite.java" />
       </list>
     </option>
   </component>
@@ -195,60 +195,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NetworkProgrammerSites" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NetworkProgrammerSites" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="out" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NetworkProgrammerSites" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NetworkProgrammerSites" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="out" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="artifacts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NetworkProgrammerSiteSaver_jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NetworkProgrammerSites" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NetworkProgrammerSites" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="out" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="artifacts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -677,7 +623,14 @@
       <option name="project" value="LOCAL" />
       <updated>1470185216398</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Adding comments to the RestoreSite.java class">
+      <created>1470186001685</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1470186001685</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -756,7 +709,8 @@
     <MESSAGE value="Fixing RestoreSite batch files not pausing between. Clearing restore site selection after restoral.&#10;&#10;Adding /wait to RestoreSite batch file executions so that the process will wait until the window is closed before continuing. Adding a line in MainUI in the action listener for the restoreSiteButton to clear the site selection field when the button is selected." />
     <MESSAGE value="Fixing SOS.ini file being deleted when a site is edited and the copy new sos.ini file checkbox is not selected." />
     <MESSAGE value="Adding REPLACE_EXISTING in EditOrDeleteSite when making a temporary copy of the sos.ini file and restoring it in case it exists." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding REPLACE_EXISTING in EditOrDeleteSite when making a temporary copy of the sos.ini file and restoring it in case it exists." />
+    <MESSAGE value="Adding comments to the RestoreSite.java class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding comments to the RestoreSite.java class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1091,17 +1045,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EditOrDeleteSite.java">
+    <entry file="file://$PROJECT_DIR$/src/RestoreSite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="46" column="97" selection-start-line="46" selection-start-column="97" selection-end-line="46" selection-end-column="97" />
+        <state relative-caret-position="136">
+          <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SiteManipulator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
+        <state relative-caret-position="-985">
           <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
           <folding>
             <element signature="e#2113#2114#0" expanded="true" />
@@ -1110,10 +1064,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RestoreSite.java">
+    <entry file="file://$PROJECT_DIR$/src/EditOrDeleteSite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
+        <state relative-caret-position="476">
+          <caret line="33" column="87" selection-start-line="33" selection-start-column="87" selection-end-line="33" selection-end-column="87" />
           <folding />
         </state>
       </provider>
