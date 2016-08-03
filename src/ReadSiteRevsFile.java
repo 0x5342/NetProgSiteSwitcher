@@ -21,6 +21,13 @@ public class ReadSiteRevsFile extends SwingWorker<String[],Object>{
     private static int IMS = 2;
     private static int TSW = 3;
 
+    /**
+     * This constructor will be used if the site's xml file is being read the data into JTextFields in Edit Site tab
+     * @param site a string representing the path to the site that contains the xml file to be read
+     * @param gcc the JTextField that will contain a string representing the path to the GCC version shortcut
+     * @param ims the JTextField that will contain a string representing the path to the IMS version shortcut
+     * @param tsw the JTextField that will contain a string representing the path to the TSW version shortcut
+     */
     public ReadSiteRevsFile(String site, JTextField gcc, JTextField ims, JTextField tsw) {
         sitePath = site;
         gccTextField = gcc;
@@ -29,6 +36,10 @@ public class ReadSiteRevsFile extends SwingWorker<String[],Object>{
         restore = false;
     }
 
+    /**
+     * This constructor will be used if the site is being read to restore a site
+     * @param site a string representing the path to the site that contains the xml file to be read and restored
+     */
     public ReadSiteRevsFile(String site){
         sitePath = site;
         restore = true;
@@ -109,7 +120,6 @@ public class ReadSiteRevsFile extends SwingWorker<String[],Object>{
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            //TODO: execute the restoral
         }
     }
 }
