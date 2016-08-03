@@ -10,6 +10,14 @@ public class RestoreSite {
     private final String sitePath, gccPath, imsPath, tswPath;
     private String gccVersion="", imsVersion="", tswVersion="";
 
+    /**
+     * Steps through executing the revision changing batch files for GCC, IMS, and TSW one at a time, and
+     * copies the sos.ini file into the Windows directory.
+     * @param site a string representing the path of the site to restore
+     * @param gcc a string representing the GCC version shortcut path if this site has a GCC
+     * @param ims a string representing the IMS version shortcut path if this site has an IMS
+     * @param tsw a string representing the TSW version shortcut path if this site has a TSW
+     */
     public RestoreSite(String site, String gcc, String ims, String tsw){
         sitePath = site;
         gccPath = gcc;
@@ -18,7 +26,7 @@ public class RestoreSite {
     }
 
     public void restore() throws IOException, ParseException {
-
+        // Check if there is a GCC version, find the file that the shortcut points to, and execute the file
         if (gccPath != null) {
             File gccShortcut = Paths.get(gccPath).toFile();
             WindowsShortcut windowsShortcut = new WindowsShortcut(gccShortcut);
@@ -37,7 +45,7 @@ public class RestoreSite {
                 }
             }
         }
-
+        // Check if there is an IMS version, find the file that the shortcut points to, and execute the file
         if (imsPath != null) {
 
             File imsShortcut = Paths.get(imsPath).toFile();
@@ -57,7 +65,7 @@ public class RestoreSite {
                 }
             }
         }
-
+        // Check if there is a TSW version, find the file that the shortcut points to, and execute the file
         if (tswPath != null) {
 
             File tswShortcut = Paths.get(tswPath).toFile();
@@ -79,9 +87,11 @@ public class RestoreSite {
         }
 
         Path src = Paths.get(sitePath+"/sos.ini");
+        // Check to see if there is an sos.ini file in this site's folder
         if (Files.exists(src)) {
             Path dst = Paths.get("C:/Windows/sos.ini");
             try {
+                // Copy the sos.ini file from the folder to C:/Windows/sos.ini
                 Files.copy(src, dst, StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException e) {
                 e.printStackTrace();

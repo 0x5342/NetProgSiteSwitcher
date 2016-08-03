@@ -8,7 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5386fa04-d9e3-47c9-9f4c-629e2144eda8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EditOrDeleteSite.java" afterPath="$PROJECT_DIR$/src/EditOrDeleteSite.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RestoreSite.java" afterPath="$PROJECT_DIR$/src/RestoreSite.java" />
     </list>
     <ignored path="NetworkProgrammerSites.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,7 +39,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EditOrDeleteSite.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EditOrDeleteSite.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EditOrDeleteSite.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="341">
@@ -49,12 +49,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RestoreSite.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RestoreSite.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/RestoreSite.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="766">
-              <caret line="84" column="70" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="72" />
+            <state relative-caret-position="136">
+              <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SiteManipulator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SiteManipulator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+              <folding>
+                <element signature="e#2113#2114#0" expanded="true" />
+                <element signature="e#2161#2162#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,9 +127,9 @@
         <option value="$PROJECT_DIR$/src/ReadSiteRevsFile.java" />
         <option value="$PROJECT_DIR$/src/CreateSite.java" />
         <option value="$PROJECT_DIR$/src/MainUI.form" />
-        <option value="$PROJECT_DIR$/src/RestoreSite.java" />
         <option value="$PROJECT_DIR$/src/MainUI.java" />
         <option value="$PROJECT_DIR$/src/EditOrDeleteSite.java" />
+        <option value="$PROJECT_DIR$/src/RestoreSite.java" />
       </list>
     </option>
   </component>
@@ -657,7 +670,14 @@
       <option name="project" value="LOCAL" />
       <updated>1470106704670</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Adding REPLACE_EXISTING in EditOrDeleteSite when making a temporary copy of the sos.ini file and restoring it in case it exists.">
+      <created>1470185216398</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1470185216398</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -735,7 +755,8 @@
     <MESSAGE value="Adding &quot;Clear Entry&quot; buttons for fields on the Create Entry and Edit Entry tabs." />
     <MESSAGE value="Fixing RestoreSite batch files not pausing between. Clearing restore site selection after restoral.&#10;&#10;Adding /wait to RestoreSite batch file executions so that the process will wait until the window is closed before continuing. Adding a line in MainUI in the action listener for the restoreSiteButton to clear the site selection field when the button is selected." />
     <MESSAGE value="Fixing SOS.ini file being deleted when a site is edited and the copy new sos.ini file checkbox is not selected." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing SOS.ini file being deleted when a site is edited and the copy new sos.ini file checkbox is not selected." />
+    <MESSAGE value="Adding REPLACE_EXISTING in EditOrDeleteSite when making a temporary copy of the sos.ini file and restoring it in case it exists." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding REPLACE_EXISTING in EditOrDeleteSite when making a temporary copy of the sos.ini file and restoring it in case it exists." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1023,13 +1044,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SiteManipulator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PopulateDirectoriesFromPreferences.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -1077,18 +1091,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RestoreSite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="766">
-          <caret line="84" column="70" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/EditOrDeleteSite.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
           <caret line="46" column="97" selection-start-line="46" selection-start-column="97" selection-end-line="46" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SiteManipulator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+          <folding>
+            <element signature="e#2113#2114#0" expanded="true" />
+            <element signature="e#2161#2162#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RestoreSite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
           <folding />
         </state>
       </provider>
