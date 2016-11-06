@@ -1,10 +1,13 @@
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class RestoreSite {
     private final String sitePath, gccPath, imsPath, tswPath;
@@ -87,15 +90,72 @@ public class RestoreSite {
         }
 
         Path src = Paths.get(sitePath+"/sos.ini");
+        Path dst = Paths.get("C:/Windows/sos.ini");
         // Check to see if there is an sos.ini file in this site's folder
         if (Files.exists(src)) {
-            Path dst = Paths.get("C:/Windows/sos.ini");
-            try {
-                // Copy the sos.ini file from the folder to C:/Windows/sos.ini
-                Files.copy(src, dst, StandardCopyOption.REPLACE_EXISTING);
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (Files.exists(dst)){
+                // Read the site's backup file into an arrayList
+                Scanner siteInput = new Scanner(src);
+                ArrayList<String> siteArrayList = new ArrayList<>();
+                while (siteInput.hasNextLine()){
+                    siteArrayList.add(siteInput.nextLine());
+                }
+                // Find the start and end line numbers of the [4100PROG] block
+                int siteBlockStart = 0;
+                int siteBlockEnd = 0;
+                for (int i = 0; i < siteArrayList.size(); i++){
+                    if(siteArrayList.get(i).contains("[4100PROG]")){
+                        siteBlockStart = i;
+                    }else if(siteBlockStart>0 && siteArrayList.get(i).isEmpty()){
+                        siteBlockEnd = i;
+                    }
+                }
+
+                // Read the Network Programmer's sos.ini file into an arrayList
+                Scanner destInput = new Scanner(dst);
+                ArrayList<String> destArrayList = new ArrayList<>();
+                while(destInput.hasNextLine()){
+                    destArrayList.add(destInput.nextLine());
+                }
+                //Find the start and end line numbers of the [4100PROG] block
+                int destBlockStart = 0;
+                int destBlockEnd = 0;
+                for(int i = 0; i < destArrayList.size(); i++){
+                    if(destArrayList.get(i).contains("[4100PROG]")){
+                        destBlockStart = i;
+                    }else if(destBlockStart>0 && destArrayList.get(i).isEmpty()){
+                        destBlockEnd = i;
+                    }
+                }
+
+                // Create a new arrayList, add the existing Network Programmer's sos.ini text up to the [4100PROG] block
+                ArrayList<String> combArrayList = new ArrayList<>();
+                for(int i = 0; i < destBlockStart; i++){
+                    combArrayList.add(destArrayList.get(i));
+                }
+                // Add in the site's backup of the [4100PROG] block
+                for(int i = siteBlockStart; i < siteBlockEnd; i++){
+                    combArrayList.add(siteArrayList.get(i));
+                }
+                // Add the remainder of the existing Network Programmer text after the [4100PROG] block
+                for(int i = destBlockEnd; i < destArrayList.size(); i++){
+                    combArrayList.add(destArrayList.get(i));
+                }
+
+                // Overwrite the existing Network Programmer sos.ini file with the combined arrayList
+                Files.write(dst,combArrayList, Charset.defaultCharset());
+
+            }else{
+                // On the condition that the sos.ini file is missing for the Network Programmer
+                try {
+                    // Copy the whole sos.ini file from the site backup folder to C:/Windows/sos.ini
+                    Files.copy(src, dst, StandardCopyOption.REPLACE_EXISTING);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+        }else{
+            //TODO: Notify that there isn't a backup of the sos.ini file (directories programming)
         }
     }
 }
