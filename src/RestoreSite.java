@@ -90,7 +90,9 @@ public class RestoreSite {
         }
 
         Path src = Paths.get(sitePath+"/sos.ini");
-        Path dst = Paths.get("C:/Windows/sos.ini");
+        //Path dst = Paths.get("C:/Windows/sos.ini");
+        //TODO: TEMP FOR TESTING
+        Path dst = Paths.get("C:/Users/sbrown/Desktop/SiteSaverTest/sos.ini");
         // Check to see if there is an sos.ini file in this site's folder
         if (Files.exists(src)) {
             if (Files.exists(dst)){
@@ -103,43 +105,62 @@ public class RestoreSite {
                 // Find the start and end line numbers of the [4100PROG] block
                 int siteBlockStart = 0;
                 int siteBlockEnd = 0;
-                for (int i = 0; i < siteArrayList.size(); i++){
-                    if(siteArrayList.get(i).contains("[4100PROG]")){
+                int i = 0;
+                while (i < siteArrayList.size()) {
+                    if (siteArrayList.get(i).contains("[4100PROG]")) {
                         siteBlockStart = i;
-                    }else if(siteBlockStart>0 && siteArrayList.get(i).isEmpty()){
-                        siteBlockEnd = i;
+                        break;
                     }
+                    i++;
+                }
+                i = siteBlockStart;
+                while (i < siteArrayList.size()){
+                    if(siteArrayList.get(i).isEmpty()){
+                        siteBlockEnd = i;
+                        break;
+                    }
+                    i++;
                 }
 
                 // Read the Network Programmer's sos.ini file into an arrayList
-                Scanner destInput = new Scanner(dst);
-                ArrayList<String> destArrayList = new ArrayList<>();
-                while(destInput.hasNextLine()){
-                    destArrayList.add(destInput.nextLine());
+                Scanner sosInput = new Scanner(dst);
+                ArrayList<String> sosArrayList = new ArrayList<>();
+                while(sosInput.hasNextLine()){
+                    sosArrayList.add(sosInput.nextLine());
                 }
                 //Find the start and end line numbers of the [4100PROG] block
-                int destBlockStart = 0;
-                int destBlockEnd = 0;
-                for(int i = 0; i < destArrayList.size(); i++){
-                    if(destArrayList.get(i).contains("[4100PROG]")){
-                        destBlockStart = i;
-                    }else if(destBlockStart>0 && destArrayList.get(i).isEmpty()){
-                        destBlockEnd = i;
+                int sosBlockStart = 0;
+                int sosBlockEnd = 0;
+                i =0;
+                while (i < sosArrayList.size()) {
+                    if (sosArrayList.get(i).contains("[4100PROG]")) {
+                        sosBlockStart = i;
+                        break;
                     }
+                    i++;
+                }
+                i = sosBlockStart;
+                while (i < sosArrayList.size()){
+                    if(sosArrayList.get(i).isEmpty()){
+                        sosBlockEnd = i;
+                        break;
+                    }
+                    i++;
                 }
 
-                // Create a new arrayList, add the existing Network Programmer's sos.ini text up to the [4100PROG] block
+                // Create a new arrayList that will be used to write the new sos.ini file
                 ArrayList<String> combArrayList = new ArrayList<>();
-                for(int i = 0; i < destBlockStart; i++){
-                    combArrayList.add(destArrayList.get(i));
+                // Add the existing Network Programmer's sos.ini text up to the [4100PROG] block
+                for(i = 0; i < sosBlockStart; i++){
+                    combArrayList.add(sosArrayList.get(i));
                 }
                 // Add in the site's backup of the [4100PROG] block
-                for(int i = siteBlockStart; i < siteBlockEnd; i++){
+                for(i = siteBlockStart; i < siteBlockEnd; i++){
                     combArrayList.add(siteArrayList.get(i));
                 }
                 // Add the remainder of the existing Network Programmer text after the [4100PROG] block
-                for(int i = destBlockEnd; i < destArrayList.size(); i++){
-                    combArrayList.add(destArrayList.get(i));
+                for(i = sosBlockEnd; i < sosArrayList.size(); i++){
+                    combArrayList.add(sosArrayList.get(i));
                 }
 
                 // Overwrite the existing Network Programmer sos.ini file with the combined arrayList
