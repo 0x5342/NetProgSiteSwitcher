@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -90,9 +91,7 @@ public class RestoreSite {
         }
 
         Path src = Paths.get(sitePath+"/sos.ini");
-        //Path dst = Paths.get("C:/Windows/sos.ini");
-        //TODO: TEMP FOR TESTING
-        Path dst = Paths.get("C:/Users/sbrown/Desktop/SiteSaverTest/sos.ini");
+        Path dst = Paths.get("C:/Windows/sos.ini");
         // Check to see if there is an sos.ini file in this site's folder
         if (Files.exists(src)) {
             if (Files.exists(dst)){
@@ -178,5 +177,8 @@ public class RestoreSite {
         }else{
             //TODO: Notify that there isn't a backup of the sos.ini file (directories programming)
         }
+        File file = new File(sitePath);
+        String siteName = file.getName();
+        JOptionPane.showMessageDialog(null,"Site \"" + siteName + "\" was restored.");
     }
 }
