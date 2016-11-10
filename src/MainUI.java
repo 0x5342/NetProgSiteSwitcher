@@ -545,11 +545,6 @@ public class MainUI extends JPanel {
         // Check that the directory stored in the preferences file exists and return the path as a String
         // if it does. Otherwise return null
         Path path = Paths.get(revsDirectory.getText());
-//        if (path.toString().equalsIgnoreCase("")){
-//            runPopulateDirectoriesFromPreferences();
-//            repaint();
-//            path = Paths.get(revsDirectory.getText());
-//        }
         return (Files.isDirectory(path))? path.toString() : null;
     }
 

@@ -104,8 +104,8 @@
                 </constraints>
                 <properties>
                   <selected value="true"/>
-                  <text value="Copy the sos.ini file"/>
-                  <toolTipText value="Check if a copy of the sos.ini file should be made"/>
+                  <text value="Copy the existing Network Programmer Directories settings"/>
+                  <toolTipText value="Check if a copy of the existing sos.ini file should be made"/>
                 </properties>
               </component>
               <component id="8fd58" class="javax.swing.JButton" binding="createTheSiteButton" default-binding="true">
@@ -243,7 +243,8 @@
                 <properties>
                   <enabled value="false"/>
                   <selected value="true"/>
-                  <text value="Create a new copy of the sos.ini file"/>
+                  <text value="Create a new copy of the existing Network Programmer Directories settings"/>
+                  <toolTipText value="Overwrite the site's programming directories with the current settings."/>
                 </properties>
               </component>
               <component id="660e8" class="javax.swing.JButton" binding="saveChangesButton" default-binding="true">
@@ -391,6 +392,7 @@
                 </constraints>
                 <properties>
                   <text value="Change Files Directory"/>
+                  <toolTipText value="Select the directory where the site backups will be stored."/>
                 </properties>
               </component>
               <component id="9061b" class="javax.swing.JTextField" binding="siteDirectory">
@@ -401,6 +403,7 @@
                 </constraints>
                 <properties>
                   <editable value="false"/>
+                  <toolTipText value="Select the directory where the site backups will be stored."/>
                 </properties>
               </component>
               <component id="ebe26" class="javax.swing.JButton" binding="changeGCCRevsDirectoryButton" default-binding="true">

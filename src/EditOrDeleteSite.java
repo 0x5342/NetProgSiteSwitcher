@@ -55,6 +55,7 @@ public class EditOrDeleteSite extends SwingWorker<Boolean,Object> {
         Path oldSitePath = Paths.get(oldSitePathName);
         Path newSitePath = Paths.get(newSitePathName);
         Path tempDestination = null;
+        copyTempSos = false;
         // If copy new sos is not checked and the site is being modified...
         if(!sosChecked&&toModify){
             Path oldSiteSosPath = Paths.get(oldSitePathName+"/sos.ini");

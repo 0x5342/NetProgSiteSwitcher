@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/NetworkProgrammerSites.iml" filepath="$PROJECT_DIR$/NetworkProgrammerSites.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NetworkProgrammerSiteSaver.iml" filepath="$PROJECT_DIR$/NetworkProgrammerSiteSaver.iml" />
     </modules>
   </component>
 </project>
