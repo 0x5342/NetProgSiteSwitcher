@@ -37,7 +37,8 @@ public class RestoreSite {
             if(windowsShortcut.isPotentialValidLink(gccShortcut)) {
                 gccVersion = windowsShortcut.getRealFilename().toString();
                 try {
-                    Process p = Runtime.getRuntime().exec("cmd /c start /wait " + gccVersion);
+                    String []commands = {"cmd.exe","/C","start /wait " + gccVersion};
+                    Process p = Runtime.getRuntime().exec(commands);
                     p.waitFor();
 
                 } catch (IOException ex) {
@@ -57,7 +58,8 @@ public class RestoreSite {
             if(windowsShortcut.isPotentialValidLink(imsShortcut)) {
                 imsVersion = windowsShortcut.getRealFilename().toString();
                 try {
-                    Process p = Runtime.getRuntime().exec("cmd /c start /wait " + imsVersion);
+                    String []commands = {"cmd.exe","/C","start /wait " + imsVersion};
+                    Process p = Runtime.getRuntime().exec(commands);
                     p.waitFor();
 
                 } catch (IOException ex) {
@@ -77,7 +79,8 @@ public class RestoreSite {
             if(windowsShortcut.isPotentialValidLink(tswShortcut)) {
                 tswVersion = windowsShortcut.getRealFilename().toString();
                 try {
-                    Process p = Runtime.getRuntime().exec("cmd /c start /wait " + tswVersion);
+                    String []commands = {"cmd.exe","/C","start /wait " + tswVersion};
+                    Process p = Runtime.getRuntime().exec(commands);
                     p.waitFor();
 
                 } catch (IOException ex) {
