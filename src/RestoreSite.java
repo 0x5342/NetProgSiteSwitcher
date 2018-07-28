@@ -39,10 +39,11 @@ public class RestoreSite {
                 try {
                     String []commands = {"cmd.exe","/C","start /wait " + gccVersion};
                     Process p = Runtime.getRuntime().exec(commands);
+                    // Wait for the commands executed by this process to complete before continuing
                     p.waitFor();
 
                 } catch (IOException ex) {
-                    //Validate the case the file can't be accesed (not enought permissions)
+                    //Validate the case the file can't be accessed (not enough permissions)
 
                 } catch (InterruptedException ex) {
                     //Validate the case the process is being stopped by some external situation

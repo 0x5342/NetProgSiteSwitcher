@@ -17,139 +17,45 @@
         <properties/>
         <border type="none"/>
         <children>
-          <grid id="52903" binding="createSiteTab" layout-manager="GridLayoutManager" row-count="6" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="10" left="10" bottom="10" right="10"/>
+          <grid id="3ca7c" binding="restoreSiteTab" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="20" left="10" bottom="20" right="10"/>
             <constraints>
-              <tabbedpane title="Create a new site"/>
+              <tabbedpane title="Restore an existing site"/>
             </constraints>
             <properties/>
             <border type="bevel-raised"/>
             <children>
-              <component id="4aea6" class="javax.swing.JLabel">
+              <component id="a6ba3" class="javax.swing.JButton" binding="siteToRestoreButton">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <labelFor value="bcdea"/>
-                  <text value="Name of new site:"/>
+                  <text value="Select site to restore"/>
                 </properties>
               </component>
-              <component id="bcdea" class="javax.swing.JTextField" binding="nameOfCreateSite">
+              <vspacer id="f812b">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+              <component id="5768b" class="javax.swing.JTextField" binding="siteToRestoreChosen">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
                 <properties>
-                  <toolTipText value="Enter the new site name"/>
-                </properties>
-              </component>
-              <component id="389eb" class="javax.swing.JButton" binding="chooseTSWVersionButton">
-                <constraints>
-                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Choose TSW version"/>
-                  <toolTipText value="Leave BLANK if only GCC or IMS"/>
-                </properties>
-              </component>
-              <component id="51b16" class="javax.swing.JTextField" binding="tswVersionCreate">
-                <constraints>
-                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
                   <editable value="false"/>
                   <text value=""/>
                 </properties>
               </component>
-              <component id="bcc5a" class="javax.swing.JButton" binding="chooseIMSVersionButton">
+              <component id="da996" class="javax.swing.JButton" binding="restoreSiteButton">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Choose IMS version"/>
-                  <toolTipText value="Leave BLANK if only GCC or TSW"/>
-                </properties>
-              </component>
-              <component id="c2238" class="javax.swing.JTextField" binding="imsVersionCreate">
-                <constraints>
-                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <editable value="false"/>
-                  <text value=""/>
-                </properties>
-              </component>
-              <component id="b7604" class="javax.swing.JButton" binding="chooseGCCVersionButton">
-                <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Choose GCC version"/>
-                  <toolTipText value="Leave BLANK if only IMS or TSW"/>
-                </properties>
-              </component>
-              <component id="947e7" class="javax.swing.JTextField" binding="gccVersionCreate">
-                <constraints>
-                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <editable value="false"/>
-                  <text value=""/>
-                </properties>
-              </component>
-              <component id="f3412" class="javax.swing.JCheckBox" binding="copySosCheckBoxCreate">
-                <constraints>
-                  <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <selected value="true"/>
-                  <text value="Copy the existing Network Programmer Directories settings"/>
-                  <toolTipText value="Check if a copy of the existing sos.ini file should be made"/>
-                </properties>
-              </component>
-              <component id="8fd58" class="javax.swing.JButton" binding="createTheSiteButton" default-binding="true">
-                <constraints>
-                  <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Create the site"/>
-                </properties>
-              </component>
-              <component id="fb689" class="javax.swing.JButton" binding="createSiteGccClearButton">
-                <constraints>
-                  <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <enabled value="true"/>
-                  <font style="1"/>
-                  <foreground color="-65536"/>
-                  <text value="X"/>
-                  <toolTipText value="Clear Entry"/>
-                </properties>
-              </component>
-              <component id="6e8c9" class="javax.swing.JButton" binding="createSiteImsClearButton">
-                <constraints>
-                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <enabled value="true"/>
-                  <font style="1"/>
-                  <foreground color="-65536"/>
-                  <text value="X"/>
-                  <toolTipText value="Clear Entry"/>
-                </properties>
-              </component>
-              <component id="3403a" class="javax.swing.JButton" binding="createSiteTswClearButton">
-                <constraints>
-                  <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <enabled value="true"/>
-                  <font style="1"/>
-                  <foreground color="-65536"/>
-                  <text value="X"/>
-                  <toolTipText value="Clear Entry"/>
+                  <enabled value="false"/>
+                  <text value="Restore selected site"/>
                 </properties>
               </component>
             </children>
@@ -335,45 +241,139 @@
               </component>
             </children>
           </grid>
-          <grid id="3ca7c" binding="restoreSiteTab" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="20" left="10" bottom="20" right="10"/>
+          <grid id="52903" binding="createSiteTab" layout-manager="GridLayoutManager" row-count="6" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="10" bottom="10" right="10"/>
             <constraints>
-              <tabbedpane title="Restore an existing site"/>
+              <tabbedpane title="Create a new site"/>
             </constraints>
             <properties/>
             <border type="bevel-raised"/>
             <children>
-              <component id="a6ba3" class="javax.swing.JButton" binding="siteToRestoreButton">
+              <component id="4aea6" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Select site to restore"/>
+                  <labelFor value="bcdea"/>
+                  <text value="Name of new site:"/>
                 </properties>
               </component>
-              <vspacer id="f812b">
-                <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                </constraints>
-              </vspacer>
-              <component id="5768b" class="javax.swing.JTextField" binding="siteToRestoreChosen">
+              <component id="bcdea" class="javax.swing.JTextField" binding="nameOfCreateSite">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
                 <properties>
+                  <toolTipText value="Enter the new site name"/>
+                </properties>
+              </component>
+              <component id="389eb" class="javax.swing.JButton" binding="chooseTSWVersionButton">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Choose TSW version"/>
+                  <toolTipText value="Leave BLANK if only GCC or IMS"/>
+                </properties>
+              </component>
+              <component id="51b16" class="javax.swing.JTextField" binding="tswVersionCreate">
+                <constraints>
+                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
                   <editable value="false"/>
                   <text value=""/>
                 </properties>
               </component>
-              <component id="da996" class="javax.swing.JButton" binding="restoreSiteButton">
+              <component id="bcc5a" class="javax.swing.JButton" binding="chooseIMSVersionButton">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <enabled value="false"/>
-                  <text value="Restore selected site"/>
+                  <text value="Choose IMS version"/>
+                  <toolTipText value="Leave BLANK if only GCC or TSW"/>
+                </properties>
+              </component>
+              <component id="c2238" class="javax.swing.JTextField" binding="imsVersionCreate">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="b7604" class="javax.swing.JButton" binding="chooseGCCVersionButton">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Choose GCC version"/>
+                  <toolTipText value="Leave BLANK if only IMS or TSW"/>
+                </properties>
+              </component>
+              <component id="947e7" class="javax.swing.JTextField" binding="gccVersionCreate">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="f3412" class="javax.swing.JCheckBox" binding="copySosCheckBoxCreate">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <selected value="true"/>
+                  <text value="Copy the existing Network Programmer Directories settings"/>
+                  <toolTipText value="Check if a copy of the existing sos.ini file should be made"/>
+                </properties>
+              </component>
+              <component id="8fd58" class="javax.swing.JButton" binding="createTheSiteButton" default-binding="true">
+                <constraints>
+                  <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Create the site"/>
+                </properties>
+              </component>
+              <component id="fb689" class="javax.swing.JButton" binding="createSiteGccClearButton">
+                <constraints>
+                  <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <enabled value="true"/>
+                  <font style="1"/>
+                  <foreground color="-65536"/>
+                  <text value="X"/>
+                  <toolTipText value="Clear Entry"/>
+                </properties>
+              </component>
+              <component id="6e8c9" class="javax.swing.JButton" binding="createSiteImsClearButton">
+                <constraints>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <enabled value="true"/>
+                  <font style="1"/>
+                  <foreground color="-65536"/>
+                  <text value="X"/>
+                  <toolTipText value="Clear Entry"/>
+                </properties>
+              </component>
+              <component id="3403a" class="javax.swing.JButton" binding="createSiteTswClearButton">
+                <constraints>
+                  <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <enabled value="true"/>
+                  <font style="1"/>
+                  <foreground color="-65536"/>
+                  <text value="X"/>
+                  <toolTipText value="Clear Entry"/>
                 </properties>
               </component>
             </children>
