@@ -33,6 +33,9 @@ public class CreateSite extends SwingWorker<Boolean,Object> {
      * @param tsw a string representing the path to the TSW version shortcut
      * @param sos TRUE if a copy of the sos.ini file is to be made into the site folder
      */
+    // TODO: instead of creating folders, just copy [4100PROG] section into xml file with its own tag
+    // TODO: create a class that finds the [4100PROG] section's start and end line of a given file
+    // TODO: have same class have methods to read that section and write that section
     public CreateSite (Path site, String gcc, String ims, String tsw, boolean sos){
         sitePath = site;
         gccVersion = gcc;

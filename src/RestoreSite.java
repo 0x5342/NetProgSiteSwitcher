@@ -22,6 +22,9 @@ public class RestoreSite {
      * @param ims a string representing the IMS version shortcut path if this site has an IMS
      * @param tsw a string representing the TSW version shortcut path if this site has a TSW
      */
+    // TODO: copy the existing Windows/sos.ini file to working directory
+    // TODO: read the [4100PROG] section from xml and replace that section in copy of sos.ini file
+    // TODO: copy the modified sos.ini file back into the Windows directory
     public RestoreSite(String site, String gcc, String ims, String tsw){
         sitePath = site;
         gccPath = gcc;
