@@ -181,11 +181,20 @@ public class RestoreSite {
                     e.printStackTrace();
                 }
             }
+
+            // Notify that the site has been restored
+            File file = new File(sitePath);
+            String siteName = file.getName();
+            JOptionPane.showMessageDialog(null,"Site \"" + siteName + "\" was restored.");
+
         }else{
-            //TODO: Notify that there isn't a backup of the sos.ini file (directories programming)
+
+            // Notify that there isn't a backup of the sos.ini file in the site directory
+            File file = new File(sitePath);
+            String siteName = file.getName();
+            JOptionPane.showMessageDialog(null,"Site \"" + siteName +
+                    "\" doesn't have a backup of the sos.ini file to restore.");
+
         }
-        File file = new File(sitePath);
-        String siteName = file.getName();
-        JOptionPane.showMessageDialog(null,"Site \"" + siteName + "\" was restored.");
     }
 }
