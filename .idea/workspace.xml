@@ -6,7 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5386fa04-d9e3-47c9-9f4c-629e2144eda8" name="Default" comment="Adding TODOs in CreateSite and RestoreSite denoting desired changes to processing to get around Windows 10">
+    <list default="true" id="5386fa04-d9e3-47c9-9f4c-629e2144eda8" name="Default" comment="Adding a user notification if there isn't a backup of the sos.ini file in the site directory">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RestoreSite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RestoreSite.java" afterDir="false" />
     </list>
@@ -451,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580180790472</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Adding a user notification if there isn't a backup of the sos.ini file in the site directory">
+      <created>1580682636708</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1580682636708</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -491,7 +498,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Create EditOrDeleteSite and DeleteFileOrFolder classes to handle modifying or deleting a site.&#10;&#10;Change CreateSite class so that it can be used for either creating a site or modifying a site. Add indents to xml file creation." />
     <MESSAGE value="Add and implement a delete button to the edit site tab with a YES/NO dialog for confirmation." />
     <MESSAGE value="Adding ability to rename a site" />
     <MESSAGE value="Checking for the existence of a site in the create site action listener instead of in the CreateSite class.&#10;&#10;This keeps a 'site already exists' error message from occurring when renaming a site." />
@@ -516,17 +522,22 @@
     <MESSAGE value="Changing the process lines for GCC, IMS, &amp; TSW version changer in RestoreSite." />
     <MESSAGE value="Changing the tab order in MainUI. Adding two comment lines in RestoreSite." />
     <MESSAGE value="Adding TODOs in CreateSite and RestoreSite denoting desired changes to processing to get around Windows 10" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding TODOs in CreateSite and RestoreSite denoting desired changes to processing to get around Windows 10" />
+    <MESSAGE value="Adding a user notification if there isn't a backup of the sos.ini file in the site directory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding a user notification if there isn't a backup of the sos.ini file in the site directory" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="254" y="200" key="CommitChangelistDialog2" timestamp="1580180788904">
+    <state x="254" y="200" key="CommitChangelistDialog2" timestamp="1580682634761">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="254" y="200" key="CommitChangelistDialog2/0.0.1920.1160/-1200.-277.1200.1880/1920.150.1680.1010@0.0.1920.1160" timestamp="1580180788904" />
+    <state x="254" y="200" key="CommitChangelistDialog2/0.0.1920.1160/-1200.-277.1200.1880/1920.150.1680.1010@0.0.1920.1160" timestamp="1580682634761" />
     <state x="345" y="136" key="SettingsEditor" timestamp="1580179465153">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="345" y="136" key="SettingsEditor/0.0.1920.1160/-1200.-277.1200.1880/1920.150.1680.1010@0.0.1920.1160" timestamp="1580179465153" />
+    <state x="452" y="247" key="Vcs.Push.Dialog.v2" timestamp="1580682646138">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="452" y="247" key="Vcs.Push.Dialog.v2/0.0.1920.1160/-1200.-277.1200.1880/1920.150.1680.1010@0.0.1920.1160" timestamp="1580682646138" />
     <state x="580" y="362" key="com.intellij.ide.util.TipDialog" timestamp="1580681547669">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>

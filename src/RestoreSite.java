@@ -170,7 +170,13 @@ public class RestoreSite {
                 }
 
                 // Overwrite the existing Network Programmer sos.ini file with the combined arrayList
-                Files.write(dst,combArrayList, Charset.defaultCharset());
+//                Files.write(dst,combArrayList, Charset.defaultCharset());
+
+                // Create a temporary version of the sos.ini file that will be copied to the Windows directory
+                Path tmpDst = Paths.get(sitePath+"/temp/sos.ini");
+                Files.write(tmpDst,combArrayList, Charset.defaultCharset());
+                // Copy the whole sos.ini file from the temp folder to C:/Windows/sos.ini
+                Files.copy(tmpDst, dst, StandardCopyOption.REPLACE_EXISTING);
 
             }else{
                 // On the condition that the sos.ini file is missing for the Network Programmer
